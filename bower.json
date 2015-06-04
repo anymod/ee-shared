@@ -1,0 +1,18 @@
+{
+  "name": "ee-shared",
+  "version": "1.0.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3",
+    "font-awesome": "~4.2",
+    "angular-bootstrap": "~0.12",
+    "angular-bootstrap-colorpicker": "~3.0"
+  }
+}
