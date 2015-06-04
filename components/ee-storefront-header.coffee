@@ -3,7 +3,7 @@
 module = angular.module 'ee-storefront-header', []
 
 module.directive "eeStorefrontHeader", ($rootScope, $state, eeStorefront, eeCart) ->
-  templateUrl: 'components/ee-storefront-header.html'
+  templateUrl: 'ee-shared/components/ee-storefront-header.html'
   scope:
     meta: '='
     blocked: '='

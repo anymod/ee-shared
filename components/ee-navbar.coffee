@@ -1,7 +1,7 @@
 angular.module 'ee-navbar', []
 
 angular.module('ee-navbar').directive "eeNavbar", (eeDefiner, eeModal) ->
-  templateUrl: 'components/ee-navbar.html'
+  templateUrl: 'ee-shared/components/ee-navbar.html'
   restrict: 'E'
   scope:
     transparent: '@'

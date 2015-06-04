@@ -1,7 +1,7 @@
 angular.module 'ee-cloudinaryUpload', []
 
 angular.module('ee-cloudinaryUpload').directive "eeCloudinaryUpload", (eeDefiner) ->
-  templateUrl: 'components/ee-cloudinary-upload.html'
+  templateUrl: 'ee-shared/components/ee-cloudinary-upload.html'
   restrict: 'E'
   replace: true
   scope:

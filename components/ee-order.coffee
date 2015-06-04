@@ -3,7 +3,7 @@
 module = angular.module 'ee-order', []
 
 module.directive "eeOrder", () ->
-  templateUrl: 'components/ee-order.html'
+  templateUrl: 'ee-shared/components/ee-order.html'
   restrict: 'E'
   scope:
     order: '='

@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('ee-product').directive "eeProductForStorefront", (eeProduct) ->
-  templateUrl: 'components/ee-product-for-storefront.html'
+  templateUrl: 'ee-shared/components/ee-product-for-storefront.html'
   restrict: 'E'
   scope:
     product: '='

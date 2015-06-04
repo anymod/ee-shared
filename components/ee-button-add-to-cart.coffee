@@ -3,7 +3,7 @@
 angular.module 'ee-button-add-to-cart', []
 
 angular.module('ee-button-add-to-cart').directive "eeButtonAddToCart", (eeCart) ->
-  templateUrl: 'components/ee-button-add-to-cart.html'
+  templateUrl: 'ee-shared/components/ee-button-add-to-cart.html'
   restrict: 'E'
   replace: true
   scope:
