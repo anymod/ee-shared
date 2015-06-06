@@ -33,7 +33,6 @@ sources.storeModules = () ->
 ### MODULE ###
 sources.appModule = [
   # Definitions
-  # './src/app/core/core.module.coffee'
   '../ee-shared/core/core.module.coffee'
   '../ee-shared/core/constants.coffee'
   '../ee-shared/core/filters.coffee'

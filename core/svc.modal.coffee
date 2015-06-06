@@ -76,7 +76,7 @@ angular.module('app.core').factory 'eeModal', ($modal) ->
 
     openProductModal: (product) ->
       _modals.product = $modal.open({
-        templateUrl:    'app/product/product.modal.html'
+        templateUrl:    'ee-shared/product/product.modal.html'
         backdropClass:  'white-background opacity-08'
         resolve:
           product: () -> product
@@ -85,7 +85,7 @@ angular.module('app.core').factory 'eeModal', ($modal) ->
 
     openCatalogProductModal: (product) ->
       _modals.product = $modal.open({
-        templateUrl:    'app/product/product.catalog.modal.html'
+        templateUrl:    'ee-shared/product/product.catalog.modal.html'
         backdropClass:  'white-background opacity-08'
         windowClass:    'full-modal'
         resolve:

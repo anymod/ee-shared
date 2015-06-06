@@ -11,15 +11,6 @@ angular.module('app.core').config ($locationProvider, $stateProvider, $urlRouter
   $httpProvider.defaults.headers.common["Content-Type"] = "application/json"
   # $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest"
 
-  # $stateProvider
-  #   .state 'app',
-  #     url: ''
-  #     template: '<div ui-view autoscroll="true" class="onscreen white-background full-height"></div>'
-  #   .state 'examples',
-  #     url: '/examples'
-  #     templateUrl: '/app/examples/examples.html'
-  #     controller: 'examplesCtrl'
-
   otherwise = if !!$cookiesProvider.$get().loginToken then '/storefront' else '/'
 
   $urlRouterProvider.otherwise otherwise
