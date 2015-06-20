@@ -44,6 +44,7 @@ sources.appModule = [
   '../ee-shared/core/svc.product.coffee'
   '../ee-shared/core/svc.modal.coffee'
   '../ee-shared/core/svc.definer.coffee'
+  '../ee-shared/core/svc.selections.coffee'
   # Product modal
   '../ee-shared/product/product.modal.controller.coffee'
 ]

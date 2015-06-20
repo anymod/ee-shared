@@ -39,6 +39,12 @@ angular.module('app.core').factory 'eeProduct', ($q, $timeout, eeAuth, eeBack, e
       .catch (err) -> deferred.reject err
     deferred.promise
 
+  _setProduct = (id) ->
+    _data.product = {}
+    _getProduct id
+    .then (data) -> _data.product = data
+    .catch (err) -> _data.product = {}
+
   _calcPrice  = (base, margin)  -> parseInt(base / (1 - margin))
   _calcMargin = (base, selling) -> 1 - (base / selling)
 
@@ -87,3 +93,4 @@ angular.module('app.core').factory 'eeProduct', ($q, $timeout, eeAuth, eeBack, e
     calcByMargin:           _calcByMargin
     calcByDollarsAndCents:  _calcByDollarsAndCents
     openProductModal:       _openProductModal
+    setProduct:             _setProduct

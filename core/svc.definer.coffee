@@ -15,12 +15,24 @@ angular.module('app.core').factory 'eeDefiner', ($rootScope, eeAuth, eeStorefron
     about:              {}
     product_selection:  []
     categories:         ['All']
+    collections:        ['Featured']
     logged_in:          _loggedIn
     loading:            {}
     blocked:            {}
     unsaved:            false
 
   ## PRIVATE FUNCTIONS
+  _humanize = (str) ->
+    frags = str.split '_'
+    (frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1)) for i in [0..(frags.length - 1)]
+    frags.join(' ')
+
+  _collectionsArray = (collections) ->
+    collections ||= {}
+    array = []
+    (array.push(_humanize c)) for c in Object.keys(collections)
+    array
+
   _fillExportData = (user, data) ->
     _exports.user               = user
     _exports.meta               = user.storefront_meta
@@ -28,6 +40,7 @@ angular.module('app.core').factory 'eeDefiner', ($rootScope, eeAuth, eeStorefron
     _exports.about              = user.storefront_meta?.about
     _exports.product_selection  = data.product_selection
     _exports.categories         = data.categories
+    _exports.collections        = _collectionsArray user.collections
     _exports.logged_in          = eeAuth.fns.hasToken()
 
   _defineLoggedIn = () ->
