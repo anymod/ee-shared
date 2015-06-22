@@ -4,7 +4,7 @@ angular.module('app.core').factory 'eeSelections', ($q, eeBack, eeAuth) ->
 
   ## SETUP
   _inputDefaults =
-    productsPerPage:  48
+    perPage:  48
     page:             null
     search:           null
     searchLabel:      null
@@ -29,7 +29,6 @@ angular.module('app.core').factory 'eeSelections', ($q, eeBack, eeAuth) ->
     deferred = $q.defer()
     # if searching then avoid simultaneous calls to API
     if !!_data.searching then return _data.searching
-    _data.count = null
     _data.searching = deferred.promise
     eeBack.selectionsGET 'demoseller', _formQuery()
     .then (res) ->
@@ -38,7 +37,9 @@ angular.module('app.core').factory 'eeSelections', ($q, eeBack, eeAuth) ->
       _data.selections  = rows
       _data.inputs.searchLabel = _data.inputs.search
       deferred.resolve _data.selections
-    .catch (err) -> deferred.reject err
+    .catch (err) ->
+      _data.count = null
+      deferred.reject err
     .finally () ->
       _data.searching = false
     deferred.promise
