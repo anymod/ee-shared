@@ -6,24 +6,12 @@ toJs      = (arr) -> _.map arr, (str) -> str.replace('.coffee', '.js').replace('
 unmin     = (arr) ->
   _.map arr, (str) -> str.replace('dist/angulartics', 'src/angulartics').replace('.min.js', '.js')
 
-# sources.builderJs = () ->
-#   [].concat stripSrc(unmin(sources.builderVendorMin))
-#     .concat stripSrc(sources.builderVendorUnmin)
-#     .concat toJs(sources.appModule)
-#     .concat toJs(sources.builderModule)
-#     .concat toJs(sources.builderDirective)
-
 sources.storeJs = () ->
   [].concat stripSrc(unmin(sources.storeVendorMin))
     .concat stripSrc(sources.storeVendorUnmin)
     .concat toJs(sources.appModule)
     .concat toJs(sources.storeModule)
     .concat toJs(sources.storeDirective)
-
-# sources.builderModules = () ->
-#   [].concat sources.appModule
-#     .concat sources.builderModule
-#     .concat sources.builderDirective
 
 sources.storeModules = () ->
   [].concat sources.appModule
@@ -41,9 +29,9 @@ sources.appModule = [
   # Services
   '../ee-shared/core/svc.back.coffee'
   '../ee-shared/core/svc.storefront.coffee'
-  '../ee-shared/core/svc.product.coffee'
   '../ee-shared/core/svc.modal.coffee'
   '../ee-shared/core/svc.definer.coffee'
+  '../ee-shared/core/svc.selection.coffee'
   '../ee-shared/core/svc.selections.coffee'
   # Product modal
   '../ee-shared/product/product.modal.controller.coffee'
