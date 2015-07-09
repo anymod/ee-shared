@@ -19,7 +19,7 @@
 @ee-dark-blue: darken(@ee-blue, 10%);
 @ee-gray: #ECEFF1;
 @ee-dark: #606060;
-@ee-dark-gray: darken(@ee-gray, 10%);
+@ee-dark-gray: darken(@ee-dark, 10%);
 @ee-green: #5CB85C;
 @ee-gold: #FFAC00;
 @ee-light-blue: #D9EDF7;
@@ -70,6 +70,9 @@
 .text-pinterest { color: @brand-pinterest !important; }
 .text-twitter { color: @brand-twitter !important; }
 .text-instagram { color: @brand-instagram !important; }
+
+.text-dark-gray { color: @ee-dark-gray !important; }
+.text-dark-blue { color: @ee-dark-blue !important; }
 
 
 // ======================
@@ -339,6 +342,7 @@ html { overflow-x: hidden; }
 .max-height-80 { max-height: 80px; }
 .max-height-0 { max-height: 0px; }
 .max-height-2400 { max-height: 2400px; }
+.min-height-300 { min-height: 300px; }
 .min-height-600 { min-height: 600px; }
 .height-0 { height: 0px !important; }
 .height-50 { height: 50px; }
@@ -351,6 +355,7 @@ html { overflow-x: hidden; }
 .width-120 { width: 120px; }
 .width-160 { width: 160px; }
 .width-200 { width: 200px; }
+.width-250 { width: 250px; }
 .width-300 { width: 300px; }
 .inline-block { display: inline-block; }
 .line-height-1 { line-height: 1em; }
@@ -716,12 +721,10 @@ nav { background-color: #f5f5f5; }
   height: auto;
 }
 
-.selection-container {
+/* .selection-container {
   margin-right: 10px;
   img:hover, .product-title:hover { cursor: pointer; }
-  img:hover + div .product-title,
-  .product-title:hover { color: @ee-blue; }
-}
+} */
 
 .storefront-carousel {
   max-height: 500px;
