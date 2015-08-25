@@ -1,4 +1,4 @@
-<!-- SELECTION CARD -->
+<!-- STOREPRODUCT CARD -->
 <div class="well white-background max-width-900 box-shadow margin-0-auto text-left">
   <div class="container-fluid vert-10">
     <div class="row">
@@ -6,11 +6,11 @@
         <img ng-src="{{ mainImage | mainImg }}" class="full-width" name="mainImage">
         <!-- images -->
         <div ng-show="details.image_meta.additional_images.length > 0" class="vert-5">
-          <img ng-src="{{ details.image_meta.main_image.url | thumbnail }}"
+          <img ng-src="{{ details.image_meta.main_image.url | midsize }}"
                class="inline-block width-62 gray-border hover-pointer margin-2"
                ng-click="setMainImage(details.image_meta.main_image.url)" />
           <img ng-repeat="img in details.image_meta.additional_images"
-               ng-src="{{ img.url | thumbnail }}"
+               ng-src="{{ img.url | midsize }}"
                class="inline-block width-62 gray-border hover-pointer margin-2"
                ng-click="setMainImage(img.url)" />
         </div>
@@ -18,10 +18,10 @@
       </div>
       <div class="col col-sm-6">
         <div class="pad-10">
-          <h1 ng-bind="selectionTitle" class="vert-10 margin-top-0 font-weight-200"></h1>
+          <h1 ng-bind="storeproductTitle" class="vert-10 margin-top-0 font-weight-200"></h1>
           <h3 ng-bind="price | centToDollar"></h3>
           <h4 ng-bind="content" class="vert-20 font-weight-200" style="white-space: pre-line;"></h4>
-          <div class="btn btn-primary btn-lg btn-block" ng-disabled="disabled" ng-if="!outOfStock && !discontinued" ng-click="addToCart()">Add to cart</div>
+          <div class="btn btn-lg btn-block" ng-disabled="disabled" ng-class="disabled ? 'btn-default' : 'btn-primary'" ng-if="!outOfStock && !discontinued" ng-click="addToCart()">Add to cart</div>
           <div class="btn btn-info btn-lg btn-block disabled" ng-if="outOfStock" disabled>Out of Stock</div>
           <div class="btn btn-info btn-lg btn-block disabled" ng-if="discontinued" disabled>Discontinued</div>
           <div class="btn btn-link pad-0 vert-20" ng-click="showDetails = !showDetails">{{ showDetails ? 'hide' : 'more' }} details</div>
@@ -71,4 +71,4 @@
       </div>
     </div>
   </div>
-</div> <!-- /SELECTION CARD -->
+</div> <!-- /STOREPRODUCT CARD -->

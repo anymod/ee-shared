@@ -28,13 +28,14 @@ sources.appModule = [
   '../ee-shared/core/run.coffee'
   # Services
   '../ee-shared/core/svc.back.coffee'
-  '../ee-shared/core/svc.storefront.coffee'
+  # '../ee-shared/core/svc.storefront.coffee'
   '../ee-shared/core/svc.modal.coffee'
   '../ee-shared/core/svc.definer.coffee'
-  '../ee-shared/core/svc.selection.coffee'
-  '../ee-shared/core/svc.selections.coffee'
+  # '../ee-shared/core/svc.selection.coffee'
+  # '../ee-shared/core/svc.selections.coffee'
+  '../ee-shared/core/svc.collections.coffee'
   # Product modal
-  '../ee-shared/product/product.modal.controller.coffee'
+  # '../ee-shared/product/product.modal.controller.coffee'
 ]
 
 module.exports = sources

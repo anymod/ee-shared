@@ -11,6 +11,14 @@
 @fa-font-path: "../fonts";
 @grid-gutter-width: 20px;
 
+// Override glyphicon behavior
+.glyphicon { .fa-icon(); }
+.glyphicon-chevron-left:before { content: @fa-var-chevron-left; }
+.glyphicon-chevron-right:before { content: @fa-var-chevron-right; }
+.glyphicon-chevron-up:before { content: @fa-var-chevron-up; }
+.glyphicon-chevron-down:before { content: @fa-var-chevron-down; }
+.carousel-control:hover { cursor: pointer; }
+
 // ======================
 // custom var
 
@@ -30,7 +38,7 @@
 @ee-light-dark: #DDDDDD;
 @ee-push-height: 60px;
 @ee-store-push-height: 80px;
-@ee-navbar-top-height: 0px;
+@ee-builder-navbar-top-height: 0px;
 @ee-main-navbar-height: 50px;
 @ee-store-navbar-height: 75px;
 @ee-xxs-width: 480px;
@@ -103,6 +111,7 @@
   transition: none !important;
   transform: none !important;
 }
+body.modal-open { overflow: visible; }
 .full-modal {
   .modal-dialog.modal-lg {
     position: fixed;
@@ -119,6 +128,37 @@
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
+  }
+}
+
+@carousel-caption-height: 60px;
+.carousel { margin-bottom: @carousel-caption-height; }
+.carousel-inner { padding-bottom: @carousel-caption-height; }
+.carousel-control { bottom: @carousel-caption-height; }
+.carousel-indicators {
+  bottom: 16px !important;
+  right: 5px !important;
+  left: inherit !important;
+  text-align: right;
+  li {
+    border: 1px solid @ee-dark-blue !important;
+    background-color: @ee-light-light-gray !important;
+  }
+  .active { background-color: @ee-dark-blue !important; }
+}
+.carousel-caption {
+  left: 0;
+  right: 0;
+  bottom: -@carousel-caption-height;
+  height: @carousel-caption-height;
+  padding: 0 3px;
+  color: @ee-dark-gray;
+  text-shadow: none;
+  text-align: left;
+  h4 {
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 24px;
   }
 }
 
@@ -182,19 +222,41 @@ html { overflow-x: hidden; }
   ul.dropdown-menu { left: auto; right: 0; }
 }
 .navbar-subheader { top: @ee-main-navbar-height; left: 0; right: 0; }
-.ee-navbar {
+.ee-builder-navbar {
   .storefront-buttons {
     .position-fixed {
       top: 8px;
       left: 50%;
-      width: 150px;
-      margin-left: -75px;
+      width: 300px;
+      margin-left: -150px;
       @media (max-width: 767px) {
         left: auto;
         margin-left: 0;
         right: 5px;
       }
     }
+  }
+}
+.ee-builder-subnav {
+  top: @ee-main-navbar-height !important;
+  max-height: 50px;
+  z-index: 1020;
+  overflow:hidden;
+  font-weight: bold;
+  .builder-subnav-btn-info,
+  .builder-subnav-btn-success {
+    display: inline-block;
+    width: 19%;
+    line-height: 14px;
+    color: #AFAFAF;
+  }
+  .builder-subnav-btn-info.active,
+  .builder-subnav-btn-info:hover {
+    color: @brand-info;
+  }
+  .builder-subnav-btn-success.active,
+  .builder-subnav-btn-success:hover {
+    color: @brand-success;
   }
 }
 .store-navbar {
@@ -344,6 +406,7 @@ html { overflow-x: hidden; }
 .max-height-2400 { max-height: 2400px; }
 .min-height-300 { min-height: 300px; }
 .min-height-600 { min-height: 600px; }
+.min-height-900 { min-height: 900px; }
 .height-0 { height: 0px !important; }
 .height-50 { height: 50px; }
 .height-450 { height: 450px; }
@@ -412,7 +475,9 @@ img.loading {
   border-top: 1px solid @gray-lighter;
   &:hover {background: @ee-gray}
 }
+.product-well { width: 180px; }
 @media (max-width: 767px) {
+  .product-well { width: 139px; }
   .product-preview-thumb img { float: left; }
   .navbar-form { margin-left: 0; }
 }
@@ -465,6 +530,16 @@ img.small-thumb {
     background: rgba(255, 255, 255, 0.1) !important;
   }
 }
+.store-title {
+  padding: 10px 12px 12px 0px;
+  @media (max-width: 767px) { padding: 10px 12px 12px 12px; }
+}
+.navbar-addition {
+  left: 70px;
+  right: 15px;
+  top: 7px;
+  z-index: 1050;
+}
 
 // bootstrap mod
 
@@ -475,7 +550,7 @@ img.media-object {
   max-height: 64px;
 }
 .nav-compact {
-  li > a { padding: 5px; }
+  li > a { padding: 1px 5px; }
 }
 .input-group {
   .btn:last-child {
@@ -721,11 +796,6 @@ nav { background-color: #f5f5f5; }
   height: auto;
 }
 
-/* .selection-container {
-  margin-right: 10px;
-  img:hover, .product-title:hover { cursor: pointer; }
-} */
-
 .storefront-carousel {
   max-height: 500px;
   background: white;
@@ -740,8 +810,7 @@ nav { background-color: #f5f5f5; }
   }
 }
 
-.selection {
-  a.selection-title { color: @ee-dark-blue; }
-  a.selection-title:hover { color: @ee-blue; }
-
+.storeproduct {
+  a.storeproduct-title { color: @ee-dark-blue; }
+  a.storeproduct-title:hover { color: @ee-blue; }
 }
