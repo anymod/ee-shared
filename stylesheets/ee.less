@@ -161,6 +161,15 @@ body.modal-open { overflow: visible; }
     line-height: 24px;
   }
 }
+@media (max-width: 600px) {
+  .carousel { margin-bottom: 0; }
+  .carousel-indicators { display: none; }
+  .carousel-control .glyphicon {
+    padding: 8px;
+    margin-top: -8px;
+    background: @ee-dark-gray;
+  }
+}
 
 // ======================
 
@@ -267,6 +276,17 @@ html { overflow-x: hidden; }
     line-height: 30px;
     padding: 19px 10px;
     height: 73px;
+  }
+  @media (max-width: 767px) {
+    .navbar-nav > li > a {
+      padding: 20px;
+      font-size: 26px;
+      font-weight: 200;
+    }
+    .store-title {
+      font-size: 26px;
+      div { max-width: 220px; overflow: hidden; }
+    }
   }
 }
 
@@ -378,7 +398,7 @@ html { overflow-x: hidden; }
 .pad-right-20 { padding-right: 20px; }
 .pad-left-0 { padding-left: 0px; }
 .pad-left-20 { padding-left: 20px; }
-.pad-top-0 { padding-top: 0px; }
+.pad-top-0 { padding-top: 0px !important; }
 .pad-top-50 { padding-top: 50px; }
 .squeeze-5 { padding-left: 5px !important; padding-right: 5px !important; }
 .round-0 { border-radius: 0px !important; }
@@ -397,8 +417,9 @@ html { overflow-x: hidden; }
 .full-width { width: 100%; }
 .max-width-100-pct { max-width: 100%; }
 .max-width-80 { max-width: 80px; }
-.max-width-300 { max-width: 300px; }
-.max-width-400 { max-width: 400px; }
+.max-width-200 { max-width: 200px !important; }
+.max-width-300 { max-width: 300px !important; }
+.max-width-400 { max-width: 400px !important; }
 .max-width-600 { max-width: 600px; }
 .max-width-900 { max-width: 900px; }
 .max-height-80 { max-height: 80px; }

@@ -6,15 +6,23 @@ module.directive "eeStoreproductCard", ($rootScope, $state, $cookies, eeBack) ->
   templateUrl: 'ee-shared/components/ee-storeproduct-card.html'
   restrict: 'E'
   scope:
-    storeproductTitle: '=' # storeproductTitle to avoid title="" in HTML (which causes popover note in some browsers)
-    price:          '='
-    content:        '='
-    mainImage:      '@'
-    details:        '='
-    disabled:       '='
-    outOfStock:     '='
-    discontinued:   '='
+    storeProduct: '='
+    product:      '='
+    disabled:     '='
+    price:        '='
+    # storeproductTitle:  '=' # storeproductTitle to avoid title="" in HTML (which causes popover note in some browsers)
+    # price:              '='
+    # content:            '='
+    # mainImage:          '@'
+    # image:              '@'
+    # additionalImages:   '@'
+    # details:            '='
+    # outOfStock:         '='
+    # discontinued:       '='
   link: (scope, ele, attrs) ->
-    scope.setMainImage = (url) -> scope.mainImage = url
-    scope.addToCart = () -> $rootScope.$emit 'add:storeproduct', $state.params.id
+    scope.adding = false
+    scope.addToCart = () ->
+      scope.adding = true
+      scope.addingText = 'Adding'
+      $rootScope.$emit 'add:storeproduct', $state.params.id
     return

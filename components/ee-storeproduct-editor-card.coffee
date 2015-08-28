@@ -6,12 +6,13 @@ module.directive "eeStoreproductEditorCard", ($window, eeCollection, eeCollectio
   templateUrl: 'ee-shared/components/ee-storeproduct-editor-card.html'
   restrict: 'E'
   scope:
-    storeProduct:   '='
-    collection:     '='
-    featureToggle:  '='
+    storeProduct: '='
+    collection:   '='
+    expanded:     '@'
   link: (scope, ele, attrs) ->
     scope.save_status = 'Save'
     scope.saved       = true
+    scope.expanded  ||= false
 
     scope.calculated =
       max_price:          undefined

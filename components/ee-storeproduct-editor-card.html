@@ -1,4 +1,4 @@
-<div class="well white-background box-shadow" ng-hide="storeProduct.removed">
+<div class="well white-background box-shadow text-left" ng-hide="storeProduct.removed">
 
   <!-- COMPACT -->
   <div class="row" ng-show="!expanded">
@@ -24,6 +24,7 @@
     <div class="col col-sm-5 text-right">
       <div ng-if="storeProduct.featured" class="btn btn-info" ng-click="unfeature()" ng-disabled="save_status == 'Saving'"><i class="fa fa-times"></i>&nbsp;&nbsp;Featured</div>
       <div ng-if="!storeProduct.featured" class="btn btn-default" ng-click="feature()" ng-disabled="save_status == 'Saving'">Add to featured</div>
+      &nbsp;
       <div ng-click="removeStoreProduct()" ng-disabled="save_status == 'Removing'" class="btn btn-default"><i class="fa fa-trash"></i></div>
     </div>
   </div>
