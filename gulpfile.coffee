@@ -8,8 +8,9 @@ sources     = require './gulp.sources'
 
 # ===========================
 ## paths
-frontPath = '../ee-front/src/ee-shared'
-storePath = '../ee-store/src/ee-shared'
+frontPath     = '../ee-front/src/ee-shared'
+storePath     = '../ee-store/src/ee-shared'
+checkoutPath  = '../ee-checkout/src/ee-shared'
 
 # ================================
 ## copy html/coffee in directories
@@ -18,6 +19,7 @@ copyDir = (dir) ->
   gulp.src './' + dir + '/*.*'
     .pipe gulp.dest frontPath + '/' + dir
     .pipe gulp.dest storePath + '/' + dir
+    .pipe gulp.dest checkoutPath + '/' + dir
   return
 
 gulp.task 'copy-components',  () -> copyDir 'components'
@@ -31,6 +33,7 @@ gulp.task 'copy-img', () ->
   gulp.src './img/*.*'
     .pipe gulp.dest frontPath + '/img'
     .pipe gulp.dest storePath + '/img'
+    .pipe gulp.dest checkoutPath + '/img'
 
 # ================================
 ## copy stylesheet
@@ -42,6 +45,7 @@ gulp.task 'copy-css', () ->
     .pipe gp.sourcemaps.write './', { includeContent: false, sourceRoot: '../' }
     .pipe gulp.dest frontPath + '/stylesheets'
     .pipe gulp.dest storePath + '/stylesheets'
+    .pipe gulp.dest checkoutPath + '/stylesheets'
 
 # ================================
 ## copy fonts
@@ -49,9 +53,11 @@ gulp.task 'copy-fonts', () ->
   gulp.src './bower_components/bootstrap/fonts/**/*.*'
     .pipe gulp.dest frontPath + '/fonts'
     .pipe gulp.dest storePath + '/fonts'
+    .pipe gulp.dest checkoutPath + '/fonts'
   gulp.src './bower_components/font-awesome/fonts/**/*.*'
     .pipe gulp.dest frontPath + '/fonts'
     .pipe gulp.dest storePath + '/fonts'
+    .pipe gulp.dest checkoutPath + '/fonts'
 
 # ===========================
 # runners
