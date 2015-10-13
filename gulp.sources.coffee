@@ -34,8 +34,8 @@ sources.appModule = [
   # '../ee-shared/core/svc.selection.coffee'
   # '../ee-shared/core/svc.selections.coffee'
   '../ee-shared/core/svc.collections.coffee'
-  # Product modal
-  # '../ee-shared/product/product.modal.controller.coffee'
+  # Template modal
+  # '../ee-shared/template/template.modal.controller.coffee'
 ]
 
 module.exports = sources

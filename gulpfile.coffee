@@ -24,7 +24,7 @@ copyDir = (dir) ->
 
 gulp.task 'copy-components',  () -> copyDir 'components'
 gulp.task 'copy-core',        () -> copyDir 'core'
-gulp.task 'copy-product',     () -> copyDir 'product'
+gulp.task 'copy-template',    () -> copyDir 'template'
 gulp.task 'copy-storefront',  () -> copyDir 'storefront'
 
 # ================================
@@ -62,7 +62,7 @@ gulp.task 'copy-fonts', () ->
 # ===========================
 # runners
 
-copyDirTasks  = ['copy-components', 'copy-core', 'copy-product', 'copy-storefront']
+copyDirTasks  = ['copy-components', 'copy-core', 'copy-template', 'copy-storefront']
 nonDirTasks   = ['copy-css', 'copy-fonts']
 
 gulp.task 'copy', copyDirTasks.concat(nonDirTasks), () ->
