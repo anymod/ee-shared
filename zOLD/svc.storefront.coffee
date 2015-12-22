@@ -177,8 +177,7 @@ angular.module('app.core').factory 'eeStorefront', ($rootScope, $q, $location, e
       _defineData()
 
     setTheme: (meta, theme) ->
-      if !meta.home.carousel[0] then meta.home.carousel[0] = {}
-      meta.home.topBarColor           = theme.topBarColor
-      meta.home.topBarBackgroundColor = theme.topBarBackgroundColor
-      meta.home.carousel[0].imgUrl    = theme.imgUrl
+      meta.brand.color.primary = theme.primary
+      meta.brand.color.secondary = theme.secondary
+      meta.brand.color.tertiary = theme.tertiary
       return
