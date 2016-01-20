@@ -21,9 +21,9 @@
           <div>
             <!-- Search -->
             <form class="form-group input-group margin-0" ng-submit="search()">
-              <input type="text" class="form-control full-width-important" placeholder="Search for products" ng-model="query" style="box-shadow: none; padding: 18px 20px;">
+              <input type="text" class="form-control full-width-important" placeholder="Search for products" ng-model="query" style="box-shadow: none; padding: 8px 20px; min-height: 38px;">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="submit" style="padding: 8px 20px;">Search&nbsp;&nbsp;<i class="fa fa-caret-right"></i></button>
+                <button class="btn btn-default" type="submit" style="padding: 8px 20px; min-height: 38px;">Search&nbsp;&nbsp;<i class="fa fa-caret-right"></i></button>
               </span>
             </form>
             <!-- /Search -->
@@ -63,14 +63,16 @@
 <!-- /Desktop nav -->
 
 <!-- Desktop Subnav -->
-<nav class="navbar navbar-default round-0 margin-0 no-side-border hidden-xs"
+<nav class="navbar navbar-default ee-store-subnav round-0 margin-0 no-side-border hidden-xs"
   ng-style="{ 'background-color': meta.brand.color.secondary }">
   <div class="container">
     <ul class="nav navbar-nav">
       <li ng-repeat="category in categories">
         <a ui-sref="category({ id: category.id, title: (category.title | urlText) })"
           ng-bind="category.title"
-          ng-style="{ color: meta.brand.color.tertiary, 'background-color': category.id == id ? 'rgba(255,255,255,0.05)' : '' }">
+          ng-style="{ color: meta.brand.color.tertiary, 'border-bottom': '5px solid ' + meta.brand.color.tertiary }"
+          ng-class="{ active: category.id == id }"
+          class="transition-200 store-subnav-btn">
         </a>
       </li>
     </ul>

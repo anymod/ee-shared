@@ -146,10 +146,10 @@ body.modal-open { overflow: visible; }
   left: inherit !important;
   text-align: right;
   li {
-    border: 1px solid @ee-dark-blue !important;
+    border: 1px solid @ee-muted !important;
     background-color: @ee-light-light-gray !important;
   }
-  .active { background-color: @ee-dark-blue !important; }
+  .active { background-color: @ee-muted !important; }
 }
 .carousel-caption {
   left: 0;
@@ -174,6 +174,18 @@ body.modal-open { overflow: visible; }
     margin-top: -8px;
     background: @ee-dark-gray;
   }
+}
+
+.pagination > li > a,
+.pagination > li > span { color: #777777; }
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #777777;
+  border-color: #777777;
 }
 
 // ======================
@@ -236,6 +248,16 @@ html { overflow-x: hidden; }
   ul.dropdown-menu { left: auto; right: 0; }
 }
 .navbar-subheader { top: @ee-main-navbar-height; left: 0; right: 0; }
+.ee-store-subnav,
+.ee-builder-subnav {
+  max-height: 50px;
+  overflow: hidden;
+}
+.ee-store-subnav {
+  .store-subnav-btn:hover,
+  .store-subnav-btn:focus,
+  .store-subnav-btn.active { padding-bottom: 8px; }
+}
 .ee-builder-navbar {
   min-height: @ee-main-navbar-height;
   .storefront-buttons {
@@ -254,25 +276,26 @@ html { overflow-x: hidden; }
 }
 .ee-builder-subnav {
   top: @ee-main-navbar-height !important;
-  max-height: 50px;
   z-index: 1020;
-  overflow:hidden;
   font-weight: bold;
-  .builder-subnav-btn-info,
-  .builder-subnav-btn-success {
+  .builder-subnav-btn {
     display: inline-block;
     width: 19%;
     line-height: 14px;
     color: #AFAFAF;
+    padding-bottom: 12px;
   }
-  .builder-subnav-btn-info.active,
-  .builder-subnav-btn-info:hover {
-    color: @brand-info;
-  }
-  .builder-subnav-btn-success.active,
-  .builder-subnav-btn-success:hover {
-    color: @brand-success;
-  }
+  .builder-subnav-btn:hover,
+  .builder-subnav-btn:focus,
+  .builder-subnav-btn.active { padding-bottom: 5px; }
+  // .builder-subnav-btn-info.active,
+  // .builder-subnav-btn-info:hover {
+  //   color: @brand-info;
+  // }
+  // .builder-subnav-btn-success.active,
+  // .builder-subnav-btn-success:hover {
+  //   color: @brand-success;
+  // }
 }
 .store-navbar {
   height: @ee-store-navbar-height;
@@ -465,6 +488,7 @@ html { overflow-x: hidden; }
 .height-550 { height: 550px; }
 .width-25 { width: 25px; }
 .width-35 { width: 35px; }
+.width-40 { width: 40px; }
 .width-45 { width: 45px; }
 .width-62 { width: 62px; }
 .width-103 { width: 103px; }
@@ -1008,3 +1032,5 @@ img.zoom-img {
 .zoom-overlay-transitioning {
   cursor: default;
 }
+
+.keen-spinner { z-index: 500 !important; }

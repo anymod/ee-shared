@@ -16,7 +16,7 @@ module.directive "eeProductCard", ($rootScope, $state, eeBack) ->
     scope.addToCart = () ->
       scope.adding = true
       scope.addingText = 'Adding'
-      $rootScope.$emit 'cart:add:sku', $state.params.id
+      $rootScope.$emit 'cart:add:sku', $state.params.id # changed to sku
 
     if scope.price and scope.product then scope.product.selling_price = scope.price
 
