@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "~3.3",
     "font-awesome": "~4.2",
-    "angular-bootstrap": "~0.14"
+    "angular-bootstrap": "~0.14",
+    "angularjs-slider": "~2.5.0"
   }
 }

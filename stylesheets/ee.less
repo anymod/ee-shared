@@ -1,7 +1,7 @@
 // vendor
 @import "../bower_components/bootstrap/less/bootstrap";
 @import "../bower_components/font-awesome/less/font-awesome";
-@import "../bower_components/angular-bootstrap-colorpicker/less/colorpicker";
+@import "../bower_components/angularjs-slider/src/rzslider";
 @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
 
 // ======================
@@ -37,6 +37,7 @@
 @ee-light-gray: #F6F6F6;
 @ee-light-light-gray: #FCFCFC;
 @ee-light-dark: #DDDDDD;
+
 @ee-push-height: 60px;
 @ee-store-push-height: 80px;
 @ee-builder-navbar-top-height: 0px;
@@ -135,14 +136,14 @@ body.modal-open { overflow: visible; }
 
 @carousel-caption-height: 60px;
 .carousel { margin-bottom: @carousel-caption-height / 2; }
-.carousel-inner { padding-bottom: @carousel-caption-height; }
+// .carousel-inner { padding-bottom: @carousel-caption-height; }
 .carousel-control {
-  bottom: @carousel-caption-height;
+  // bottom: @carousel-caption-height;
   background: none !important;
 }
 .carousel-indicators {
-  bottom: 16px !important;
-  right: 5px !important;
+  bottom: -35px !important;
+  right: 15px !important;
   left: inherit !important;
   text-align: right;
   li {
@@ -971,8 +972,8 @@ a.product {
 }
 
 @media (max-width: 600px) {
-  ee-collection-for-builder,
-  ee-collection-add-card {
+  // ee-collection-add-card,
+  ee-collection-for-builder {
     .media-left {
       display: inline-block;
       padding: 0;
@@ -1033,4 +1034,39 @@ img.zoom-img {
   cursor: default;
 }
 
-.keen-spinner { z-index: 500 !important; }
+// Angularjs-slider override
+rzslider {
+  margin-top: 10px;
+  .rz-pointer {
+    width: 20px;
+    height: 20px;
+    top: -8px;
+    background-color: @ee-dark-blue;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+  }
+  .rz-pointer:after { display: none; }
+  .rz-bar {
+    height: 6px;
+    background: #C2C2C2;
+    box-shadow: inset 0px 0px 3px @ee-dark-gray;
+  }
+  .rz-bubble { display: none; }
+}
+rzslider.vertical .rz-pointer { left: -8px !important; }
+.thin-slider {
+  rzslider .rz-pointer {
+    width: 5px;
+    height: 20px;
+    margin-left: -3px;
+  }
+  rzslider .rz-bar.rz-selection { margin-left: -3px; }
+  rzslider.vertical .rz-pointer {
+    left: -8px !important;
+    width: 20px;
+    height: 5px;
+    margin-left: 0;
+  }
+  rzslider.vertical .rz-bar.rz-selection { margin-left: 0; }
+}
