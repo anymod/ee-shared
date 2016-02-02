@@ -87,7 +87,7 @@
 a.link-muted { color: @ee-muted !important; }
 
 // ======================
-// bootstrap-ui adjustments
+// bootstrap-ui adjustments uib
 .dropdown-menu { z-index: 1070; } // place above popovers (1060)
 .popover {
   top: 30px;
@@ -104,6 +104,10 @@ a.link-muted { color: @ee-muted !important; }
 }
 .popover-primary.top > .arrow,
 .popover-primary.top > .arrow-primary:after { border-top-color: @ee-blue !important; }
+uib-accordion {
+  i { color: #f5f5f5; }
+  a:focus { outline: none; }
+}
 .modal { z-index: 5001 !important; }
 .modal-backdrop { z-index: 5000 !important; bottom: 0; }
 @media (min-width: 768px) { .modal-dialog { margin-top: 60px; } }
