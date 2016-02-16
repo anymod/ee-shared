@@ -119,7 +119,8 @@ uib-accordion.track-accordion {
     i.fa-hide { color: #FFFFFF; }
     a:focus { outline: none; }
   }
-  .panel-collapse { background: #F5F5F5; }
+  .panel-title { font-size: 20px; }
+  .panel-collapse { background: #AFE1F7; }
 }
 .modal { z-index: 5001 !important; }
 .modal-backdrop { z-index: 5000 !important; bottom: 0; }
@@ -590,7 +591,10 @@ img.loading {
   border-top: 1px solid @gray-lighter;
   &:hover {background: @ee-gray}
 }
-.product-well { width: 170px; }
+.product-well {
+  width: 170px;
+  img { min-height: 111px; }
+}
 .collection-well { width: 356px; }
 @media (max-width: 767px) {
   .product-well { width: 143px; }
