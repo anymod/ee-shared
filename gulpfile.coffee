@@ -1,8 +1,10 @@
 gulp  = require 'gulp'
+del   = require 'del'
 gp    = do require "gulp-load-plugins"
 
 streamqueue = require 'streamqueue'
 combine     = require 'stream-combiner'
+runSequence = require 'run-sequence'
 
 sources     = require './gulp.sources'
 
@@ -11,6 +13,13 @@ sources     = require './gulp.sources'
 frontPath   = '../ee-front/src/ee-shared'
 storePath   = '../ee-store/src/ee-shared'
 securePath  = '../ee-secure/src/ee-shared'
+
+## ==========================
+## del tasks
+gulp.task 'del-front', () -> del frontPath, { force: true }
+gulp.task 'del-store', () -> del storePath, { force: true }
+gulp.task 'del-secure', () -> del securePath, { force: true }
+gulp.task 'del-all', () -> runSequence 'del-front', 'del-store', 'del-secure'
 
 # ================================
 ## copy html/coffee in directories
@@ -61,11 +70,15 @@ gulp.task 'copy-fonts', () ->
 
 # ===========================
 # runners
-
+delTasks      = ['del-front', 'del-store', 'del-secure']
 copyDirTasks  = ['copy-components', 'copy-core', 'copy-template', 'copy-storefront']
 nonDirTasks   = ['copy-css', 'copy-fonts']
 
-gulp.task 'copy', copyDirTasks.concat(nonDirTasks), () ->
+gulp.task 'watch-changes', () ->
   gulp.watch ['./**/*.html', './**/*.coffee'], copyDirTasks
-  gulp.src('./stylesheets/ee.less').pipe gp.watch { emit: 'one', name: 'img' }, ['copy-css']
-  gulp.src('./img/*.*').pipe gp.watch { emit: 'one', name: 'img' }, ['copy-img']
+  # gulp.src(['./**/*.html', './**/*.coffee']).pipe gp.watch { emit: 'one', name: 'copy-dirs' }, ['copy-dirs']
+  gulp.src('./stylesheets/ee.less').pipe gp.watch { emit: 'one', name: 'copy-css' }, ['copy-css']
+  gulp.src('./img/*.*').pipe gp.watch { emit: 'one', name: 'copy-img' }, ['copy-img']
+
+gulp.task 'copy', () ->
+  runSequence delTasks, copyDirTasks, nonDirTasks, 'watch-changes'
