@@ -25,7 +25,7 @@ module.directive "eeStorefrontLogo", () ->
     setImagePath = () ->
       p = ''
       if scope.meta?.brand?.image?.logo
-        p = if scope.meta.brand.image.logo.indexOf('storefront_logo') > -1 then 'l_storefront_logo:' else 'l_logo_260x60:'
+        p = if scope.meta.brand.image.logo.indexOf('storefront_logo') > -1 then 'l_storefront_logo:' else 'l_logo_300x80:'
         parts = scope.meta.brand.image.logo.split('/')
         last = parts[parts.length - 1]
         p += last + ','
@@ -41,7 +41,7 @@ module.directive "eeStorefrontLogo", () ->
         if scope.meta?.brand?.color?.primary then p = 'e_colorize,co_rgb:' + scope.meta.brand.color.primary.replace(/#/g,'') + ',' + p
         return scope.path = p
       # setImagePath()
-      scope.path = setBackgroundPath() + '/' + setImagePath() + '/' + setTextPath() + '/v1450113176/260x60.png'
+      scope.path = setBackgroundPath() + '/' + setImagePath() + '/' + setTextPath() + '/v1458333922/300x80.png'
 
     wait = false
     scope.$watch 'meta', (newVal, oldVal) =>
