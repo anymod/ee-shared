@@ -1076,11 +1076,13 @@ a.product {
   &:hover, &:focus {
     .material-box-shadow(3px,6px,0.16,3px,6px,0.23);
   }
-  max-width: 225px;
+  max-width: 210px;
   @media (max-width: 480px) { max-width: 100%; }
-  @media (min-width: 481px) and (max-width: 767px) { max-width: 212px; }
-  @media (min-width: 1200px) { max-width: 260px; }
+  // @media (min-width: 481px) and (max-width: 767px) { max-width: 212px; }
   // @media (max-width: @screen-md-max) { max-width: 235px; }
+}
+.product-repeater {
+  @media (max-width: 480px) { max-width: 49%; }
 }
 .homepage-product {
   max-width: 25%;
