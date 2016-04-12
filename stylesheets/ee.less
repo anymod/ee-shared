@@ -42,7 +42,7 @@
 @ee-store-push-height: 80px;
 @ee-builder-navbar-top-height: 0px;
 @ee-main-navbar-height: 60px;
-@ee-store-navbar-height: 90px;
+@ee-store-navbar-height: 84px;
 @ee-xxs-width: 480px;
 
 @offscreen-left-width: 300px;
@@ -339,15 +339,16 @@ html { overflow-x: hidden; }
   ul.dropdown-menu { left: auto; right: 0; }
 }
 .navbar-subheader { top: @ee-main-navbar-height; left: 0; right: 0; }
-.ee-store-subnav,
 .ee-builder-subnav {
   max-height: 50px;
   overflow: hidden;
 }
 .ee-store-subnav {
-  .store-subnav-btn:hover,
-  .store-subnav-btn:focus,
-  .store-subnav-btn.active { padding-bottom: 8px; }
+  max-height: 40px;
+  min-height: 40px;
+  font-size: 17px;
+  overflow: hidden;
+  ul.nav > li > a { padding-top: 8px; padding-bottom: 12px; }
 }
 .ee-builder-navbar {
   min-height: @ee-main-navbar-height;
@@ -655,12 +656,13 @@ html { overflow-x: hidden; }
 .brand-area {
   width: 300px;
   left: 0;
-  padding-top: 7px;
+  padding-top: 2px;
 }
 .activity-area {
   left: 307px;
   right: 0;
-  padding-top: 7px;
+  padding-top: 5px;
+  font-size: 16px;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus { background-color: none; background: rgba(0,0,0,0.15) }
