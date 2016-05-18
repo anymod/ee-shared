@@ -2,7 +2,7 @@
 
 module = angular.module 'ee-storefront-header', []
 
-module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeCart, categories) ->
+module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeCart, eeModal, categories) ->
   templateUrl: 'ee-shared/components/ee-storefront-header.html'
   scope:
     user:           '='
@@ -13,6 +13,7 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeCart, cat
     query:          '='
     showScrollnav:  '='
     showScrollToTop: '@'
+    compactView:    '@'
   link: (scope, ele, attrs) ->
     scope.state  = $state.current.name
     scope.id     = if scope.state is 'category' then parseInt($state.params.id) else null
@@ -33,9 +34,11 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeCart, cat
     scope.search = (query, page) ->
       $state.go 'search', { q: (query || scope.query), p: (page || scope.page) }
 
-    $rootScope.$on 'search:query', (e, query) -> scope.search query, 1
+    $rootScope.$on 'search:query', (e, data) -> scope.search data.q, 1
 
     assignCategories()
     scope.$on 'updated:user', () -> assignCategories()
+
+    scope.openOfferModal = () -> eeModal.fns.open 'offer'
 
     return
