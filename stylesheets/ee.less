@@ -277,7 +277,7 @@ body.modal-open { overflow: visible; }
   .carousel-indicators { display: none; }
   .carousel-control .glyphicon {
     padding: 8px;
-    margin-top: -8px;
+    margin-top: -18px;
     background: @ee-dark-gray;
   }
 }
@@ -300,9 +300,10 @@ body.modal-open { overflow: visible; }
   display: none;
 }
 
-.container.squeeze {
-  max-width: 730px;
-  margin: 0 auto;
+.container-narrow {
+  max-width: 900px;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 html, body {
@@ -1099,12 +1100,12 @@ a.product {
   background-color: white;
   border: 1px solid @ee-light-light-gray;
   border-radius: 2px;
-  margin: 3px;
+  margin: 1px;
   transition: all 0.2s ease-in-out;
   &:hover, &:focus {
     .material-box-shadow(3px,6px,0.16,3px,6px,0.23);
   }
-  max-width: 210px;
+  max-width: 218px;
   @media (max-width: 480px) { max-width: 100%; }
   // @media (min-width: 481px) and (max-width: 767px) { max-width: 212px; }
   // @media (max-width: @screen-md-max) { max-width: 235px; }
@@ -1199,39 +1200,19 @@ img.zoom-img {
   cursor: default;
 }
 
-// Angularjs-slider override
-// rzslider {
-//   margin-top: 10px;
-//   .rz-pointer {
-//     width: 20px;
-//     height: 20px;
-//     top: -8px;
-//     background-color: @ee-dark-blue;
-//     -webkit-border-radius: 2px;
-//     -moz-border-radius: 2px;
-//     border-radius: 2px;
-//   }
-//   .rz-pointer:after { display: none; }
-//   .rz-bar {
-//     height: 6px;
-//     background: #C2C2C2;
-//     box-shadow: inset 0px 0px 3px @ee-dark-gray;
-//   }
-//   .rz-bubble { display: none; }
-// }
-// rzslider.vertical .rz-pointer { left: -8px !important; }
-// .thin-slider {
-//   rzslider .rz-pointer {
-//     width: 5px;
-//     height: 20px;
-//     margin-left: -3px;
-//   }
-//   rzslider .rz-bar.rz-selection { margin-left: -3px; }
-//   rzslider.vertical .rz-pointer {
-//     left: -8px !important;
-//     width: 20px;
-//     height: 5px;
-//     margin-left: 0;
-//   }
-//   rzslider.vertical .rz-bar.rz-selection { margin-left: 0; }
-// }
+// simple store
+img.logo {
+  max-height: 60px;
+  @media (max-width: 767px) { max-height: 50px; }
+}
+.nav-side {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -280px;
+  width: 250px;
+  overflow-y: scroll;
+  z-index: 4000;
+  li { width: 100%; }
+}
+.nav-side.open { left: 0; }
