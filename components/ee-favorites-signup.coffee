@@ -7,6 +7,7 @@ angular.module('ee-favorites-signup').directive 'eeFavoritesSignup', (eeModal, e
   restrict: 'EA'
   scope: {}
   link: (scope, ele, attr) ->
+    scope.data = eeFavorites.data
     scope.send_favorites_link = true
     scope.on_mailing_list = true
 

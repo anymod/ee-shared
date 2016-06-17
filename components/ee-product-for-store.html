@@ -1,25 +1,26 @@
 <div class="product-container position-relative">
   <a class="product" ui-sref="product({ id: product.id, title: (product.title | urlText) })">
-    <img ng-src="{{ product.image | cloudinaryResizeTo:250:250 }}" class="img-responsive full-width">
+    <img ee-image-fadein
+      ee-src="{{ product.image }}"
+      ee-w=250 ee-h=250
+      load-boolean="hideFavoriteButton"
+      class="img-responsive full-width transition-400">
     <!-- <h5 class="product-title vert-5 text-dark-blue font-weight-200" ng-bind="product.title"></h5> -->
   </a>
   <div ng-if="product.discounted"
     class="position-absolute"
-    style="bottom: 10px; left: -1px;">
+    style="bottom: 14px; left: -1px;">
     <a ui-sref="sale({ id: product.discounted })"
       class="btn btn-themed btn-arrow">
       <span ng-if="state != 'sale'">Sale</span>
       <span ng-if="state == 'sale'" ng-bind="product.skus | discountRange"></span>
     </a>
   </div>
-  <a href class="position-absolute pad-15"
-    style="bottom: 0; right: 0; padding-bottom: 2px; padding-right: 5px;">
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-heart fa-stack-1x white-color" style="opacity: 0.6;"></i>
-      <i class="fa fa-heart-o fa-stack-1x text-muted"></i>
-    </span>
-    <!-- <i class="fa fa-lg fa-heart-o text-muted"></i> -->
-  </a>
+  <div ng-hide="hideFavoriteButton"
+    class="position-absolute"
+    style="bottom: 0; right: 0; padding: 15px 0 0 15px;">
+    <ee-favorites-heart ng-if="product.skus" product-skus="product.skus"></ee-favorites-heart>
+  </div>
 
   <!-- <div class="vert-5">
     <h4 class="inline-block vert-0 text-dark-gray" ng-bind="product.prices | priceRange"></h4>
