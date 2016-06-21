@@ -15,7 +15,7 @@ angular.module('ee-favorites-signup').directive 'eeFavoritesSignup', (eeModal, e
       if !scope.email? then return scope.alert = 'Please enter your email'
       scope.alert = false
       scope.submitting = true
-      eeFavorites.fns.createOrUpdate scope.email, eeFavorites.data.sku_ids, scope.on_mailing_list
+      eeFavorites.fns.createOrUpdate scope.email, scope.on_mailing_list
       .then (res) -> scope.alert = false
       .catch (err) -> scope.alert = 'Problem with email address'
       .finally () -> scope.submitting = false
