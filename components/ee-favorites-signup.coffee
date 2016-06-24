@@ -2,7 +2,7 @@
 
 angular.module 'ee-favorites-signup', []
 
-angular.module('ee-favorites-signup').directive 'eeFavoritesSignup', (eeModal, eeFavorites, eeBack) ->
+angular.module('ee-favorites-signup').directive 'eeFavoritesSignup', (eeFavorites) ->
   templateUrl: 'ee-shared/components/ee-favorites-signup.html'
   restrict: 'EA'
   scope: {}

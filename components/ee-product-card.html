@@ -24,22 +24,29 @@
           </div>
         </div>
         <a ng-if="currentSku.discounted" ui-sref="sale({ id: currentSku.discounted })" class="btn btn-themed btn-arrow">Sale</a>
-        <div>
-          <h3 class="vert-5 inline-block" ng-bind="currentSku.price | centToDollar"></h3>
-          <h4 ng-if="currentSku.msrp && currentSku.price && currentSku.msrp > currentSku.price && msrpDiscount > 0.045"
-            class="vert-5 inline-block"
-            style="margin-left: 15px;">
-            <span class="text-muted"><s>{{ currentSku.msrp | centToDollar }}</s></span>
-            <span class="text-danger">&nbsp;{{ msrpDiscount | percentage:0 }} Off</span>
-          </h4>
+        <div class="row">
+          <div class="col col-xs-7">
+            <h2 ng-bind="currentSku.price | centToDollar"
+              class="margin-0 inline-block"
+              style="margin-right: 12px !important;">
+            </h2>
+            <h5 ng-if="currentSku.shipping_price > 0"
+              class="margin-0 text-muted inline-block">
+              <span ng-bind="currentSku.shipping_price | centToDollar"></span>&nbsp;s&h
+              <!-- <span style="margin-left: 15px;">Free shipping on orders over $50</span> -->
+            </h5>
+          </div>
+          <div class="col col-xs-5">
+            <h4 ng-if="currentSku.msrp && currentSku.price && currentSku.msrp > currentSku.price && msrpDiscount > 0.049"
+              class="margin-0 pull-right text-info" style="line-height: 33px;">
+              <span ng-bind="msrpDiscount | percentage:0"></span>&nbsp;off&nbsp;<s ng-bind="currentSku.msrp | centToDollar"></s>
+            </h4>
+          </div>
         </div>
         <h4 ng-if="currentSku.shipping_price == 0" class="vert-15 margin-top-0 text-success">
           Free Shipping
         </h4>
-        <h5 ng-if="currentSku.shipping_price > 0" class="vert-15 margin-top-0 text-muted">
-          +&nbsp;<span ng-bind="currentSku.shipping_price | centToDollar"></span>&nbsp;s&h
-          <span style="margin-left: 15px;">Free shipping on orders over $50</span>
-        </h5>
+
         <div class="vert-10">
           <div class="btn btn-lg btn-block btn-themed"
             ng-if="currentSku.quantity > 0 && !currentSku.discontinued"
@@ -50,19 +57,21 @@
           <div class="btn btn-info btn-lg btn-block disabled" ng-if="currentSku.quantity < 1" disabled>Out of Stock</div>
           <div class="btn btn-info btn-lg btn-block disabled" ng-if="currentSku.discontinued" disabled>Discontinued</div>
         </div>
-        <div ng-if="currentSku.length || currentSku.width || currentSku.height">
-          <img src="https://res.cloudinary.com/eeosk/image/upload/c_scale,w_30/v1447453155/ruler.png"/>
-          <span ng-if="currentSku.length">{{ currentSku.length }}"L </span>
-          <span ng-if="currentSku.length && currentSku.width"><i class="fa fa-fw fa-times text-muted"></i></span>
-          <span ng-if="currentSku.width">{{ currentSku.width }}"W </span>
-          <span ng-if="currentSku.width && currentSku.height"><i class="fa fa-fw fa-times text-muted"></i></span>
-          <span ng-if="currentSku.height">{{ currentSku.height }}"H </span>
-        </div>
-        <div class="vert-5">
-          <i class="fa fa-lg fa-fw fa-cube text-info"></i>&nbsp;&nbsp;Ships from USA
-        </div>
-        <div class="vert-5">
-          <i class="fa fa-lg fa-fw fa-info-circle text-info"></i>&nbsp;&nbsp;<a ui-sref="product({ id: product.id, title: (product.title | urlText), '#': 'details' })" class="text-dark-blue">Product details</a>
+        <div class="text-center product-info">
+          <h4 ng-if="currentSku.length || currentSku.width || currentSku.height"
+            class="font-weight-200"
+            style="margin-right: 12px;">
+            <img src="https://res.cloudinary.com/eeosk/image/upload/c_scale,w_30/v1447453155/ruler.png"/>
+            <span ng-if="currentSku.length">{{ currentSku.length }}"L </span>
+            <strong ng-if="currentSku.length && currentSku.width">&times;</strong>
+            <span ng-if="currentSku.width">{{ currentSku.width }}"W </span>
+            <strong ng-if="currentSku.width && currentSku.height">&times;</strong>
+            <span ng-if="currentSku.height">{{ currentSku.height }}"H </span>
+          </h4>
+          <h4 class="vert-5 font-weight-200">Ships from USA</h4>
+          <h4 class="vert-5 font-weight-200">
+            <a ui-sref="product({ id: product.id, title: (product.title | urlText), '#': 'details' })" class="text-dark-blue">Product details</a>
+          </h4>
         </div>
       </div>
     </div>
@@ -70,12 +79,12 @@
 
   <!-- Similar products -->
   <div ng-if="products.length > 0" class="vert-20 margin-bottom-0 text-center">
-    <h5 class="font-weight-200 text-left vert-5 margin-top-0">You might also like</h5>
+    <h5 class="font-weight-200 text-center pad-5 border-bottom-gray">You might also like</h5>
     <div ng-repeat="prod in products" class="homepage-product text-left inline-block vertical-align-top">
       <ee-product-for-store product="prod"></ee-product-for-store>
     </div>
     <br>
-    <a ui-sref="search({ q: product.title })" class="btn btn-themed">
+    <a ui-sref="search({ q: product.title })" class="btn btn-themed vert-10">
       <i class="fa fa-search"></i>&nbsp;more like these
     </a>
   </div>

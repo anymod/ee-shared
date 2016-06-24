@@ -7,6 +7,7 @@ angular.module('ee-image-fadein').directive "eeImageFadein", ($filter, $timeout)
     eeSrc: '@'
     eeW: '@'
     eeH: '@'
+    eeTrim: '@'
     eeCrop: '@'
     watch: '@'
     loadBoolean: '='
@@ -24,7 +25,11 @@ angular.module('ee-image-fadein').directive "eeImageFadein", ($filter, $timeout)
         element.attr 'style', 'opacity: 1;'
         $timeout(() -> scope.loadBoolean = false)
 
-    element.one 'load', () -> loadImage $filter('cloudinaryResizeTo')(scope.eeSrc, w, h, crop)
+    element.one 'load', () ->
+      if scope.eeTrim
+        loadImage $filter('cloudinaryResizeTo')($filter('cloudinaryTrim')(scope.eeSrc), w, h, crop)
+      else
+        loadImage $filter('cloudinaryResizeTo')(scope.eeSrc, w, h, crop)
 
     if scope.watch
       scope.$watch 'eeSrc', (newVal, oldVal) ->
