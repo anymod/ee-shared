@@ -7,6 +7,7 @@ angular.module('ee-signup').directive 'eeSignup', ($rootScope, $window, $timeout
   restrict: 'EA'
   scope:
     runParse: '@'
+    hideSocial: '@'
   link: (scope, ele, attr) ->
 
     scope.subscribe = () ->
@@ -25,7 +26,7 @@ angular.module('ee-signup').directive 'eeSignup', ($rootScope, $window, $timeout
       $window.FB?.XFBML?.parse(parent)
       $window.PinUtils?.build(parent)
     # $timeout(socialParse, 100)
-    socialParse()
+    socialParse() unless scope.hideSocial
 
     # page_like_callback = (url, html_element) ->
     #   console.log 'running'

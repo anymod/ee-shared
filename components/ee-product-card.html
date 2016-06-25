@@ -80,10 +80,10 @@
   <!-- Similar products -->
   <div ng-if="products.length > 0" class="vert-20 margin-bottom-0 text-center">
     <h5 class="font-weight-200 text-center pad-5 border-bottom-gray">You might also like</h5>
-    <div ng-repeat="prod in products" class="homepage-product text-left inline-block vertical-align-top">
-      <ee-product-for-store product="prod"></ee-product-for-store>
-    </div>
-    <br>
+    <ee-products-list
+      products="products"
+      show-signup=true>
+    </ee-products-list>
     <a ui-sref="search({ q: product.title })" class="btn btn-themed vert-10">
       <i class="fa fa-search"></i>&nbsp;more like these
     </a>
