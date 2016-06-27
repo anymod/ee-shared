@@ -21,6 +21,8 @@ angular.module('ee-favorites-heart').directive 'eeFavoritesHeart', (eeFavorites)
 
     scope.toggleHeartActive = () ->
       scope.heartActive = !skuFavorited()
+      console.log 'emitting'
+      scope.$emit 'favorites:toggle', scope.heartActive, sku_ids[0]
       if scope.heartActive
         eeFavorites.fns.addSku sku_ids[0]
       else
