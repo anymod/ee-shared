@@ -19,7 +19,10 @@
   <div ng-hide="hideFavoriteButton"
     class="position-absolute"
     style="bottom: 0; right: 0; padding: 15px 0 0 15px;">
-    <ee-favorites-heart ng-if="product.skus" product-skus="product.skus"></ee-favorites-heart>
+    <ee-favorites-heart
+      ng-if="product.skus"
+      product-skus="product.skus">
+    </ee-favorites-heart>
   </div>
 
   <!-- <div class="vert-5">
