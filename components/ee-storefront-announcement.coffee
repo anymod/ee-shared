@@ -8,6 +8,7 @@ module.directive "eeStorefrontAnnouncement", (eeModal) ->
     user: '='
     message: '@'
     hideButtons: '='
+    showFavoritesMessage: '='
   link: (scope, ele, attrs) ->
     scope.openOfferModal = () -> eeModal.fns.open 'offer'
 
