@@ -2,7 +2,7 @@
 
 module = angular.module 'ee-paypal-button', []
 
-module.directive "eePaypalButton", (eeCart, eeBack) ->
+module.directive "eePaypalButton", (eeCart, eeBack, eeEnvironment) ->
   templateUrl: 'ee-shared/components/ee-paypal-button.html'
   restrict: 'EA'
   scope:
@@ -21,8 +21,9 @@ module.directive "eePaypalButton", (eeCart, eeBack) ->
         paypal.checkout.closeFlow()
 
     loadPaypalButton = () ->
+      env = if eeEnvironment is 'production' then 'production' else 'sandbox'
       paypal.checkout.setup 'WJ7QFVAKXGVG8', {
-        environment: 'sandbox'
+        environment: env
         container: 't1'
       }
       scope.showButton = true

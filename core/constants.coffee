@@ -2,6 +2,7 @@
 
 angular.module 'app.core'
   .constant 'perPage', 48
+  .constant 'eeEnvironment', '@@eeEnvironment'
   .constant 'eeBackUrl', '@@eeBackUrl/v0/'
   .constant 'eeSecureUrl', '@@eeSecureUrl/'
   .constant 'eeStripeKey', '@@eeStripeKey'

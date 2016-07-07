@@ -9,5 +9,5 @@ angular.module('ee-product-for-store').directive "eeProductForStore", ($state, $
     product: '='
   link: (scope, ele, attr) ->
     scope.state = $state.current.name
-    scope.hideFavoriteButton = true
+    scope.hideButtons = true
     return

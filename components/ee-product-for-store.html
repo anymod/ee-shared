@@ -1,13 +1,42 @@
-<div class="product-container position-relative pad-5">
+<div class="product-container position-relative pad-5 overflow-hidden">
   <a class="product" ui-sref="product({ id: product.id, title: (product.title | urlText) })">
     <img ee-image-fadein
       ee-src="{{ product.image }}"
       ee-w=220 ee-h=220 ee-trim=true
-      load-boolean="hideFavoriteButton"
+      load-boolean="hideButtons"
       class="img-responsive full-width transition-400">
+    <div ng-hide="hideButtons"
+      class="position-absolute text-left"
+      style="bottom: 1px; right: 1px;">
+      <h6 class="inline-block vert-0 round-5 text-dark line-height-1-1"
+        style="background: rgba(255,255,255,0.65); padding: 0 2px;"
+        ng-bind="product.prices | priceRange">
+      </h6>
+    </div>
     <!-- <h5 class="product-title vert-5 text-dark-blue font-weight-200" ng-bind="product.title"></h5> -->
   </a>
+  <div ng-if="!product.discounted">
+    <a ng-hide="hideButtons"
+      ui-sref="search({ q: product.title, c: product.category_id })"
+      class="position-absolute text-left"
+      style="bottom: 1px; left: -6px; z-index: 2; padding: 10px 20px 0 0;">
+      <span class="fa-stack fa-2x">
+        <i class="fa fa-circle fa-stack-1x white-color" style="opacity: 0.7;"></i>
+        <i class="fa fa-lightbulb-o fa-stack-1x text-dark"></i>
+      </span>
+    </a>
+    <a ng-hide="hideButtons"
+      ui-sref="search({ q: product.title, c: product.category_id })"
+      class="position-absolute text-left"
+      style="bottom: 1px; left: 4px; z-index: 3">
+      <h6 class="inline-block vert-0 round-5 text-dark line-height-1-1 hover-underline"
+        style="background: rgba(255,255,255,0.65); padding: 0 2px;">
+        ideas
+      </h6>
+    </a>
+  </div>
   <div ng-if="product.discounted"
+    ng-hide="hideButtons"
     class="position-absolute"
     style="bottom: 14px; left: -1px;">
     <a ui-sref="sale({ id: product.discounted })"
@@ -16,9 +45,9 @@
       <span ng-if="state == 'sale'" ng-bind="product.skus | discountRange"></span>
     </a>
   </div>
-  <div ng-hide="hideFavoriteButton"
+  <div ng-hide="hideButtons"
     class="position-absolute"
-    style="bottom: 0; right: 0; padding: 15px 0 0 15px;">
+    style="bottom: 1px; right: -9px; padding: 15px 0 0 15px;">
     <ee-favorites-heart
       ng-if="product.skus"
       product-skus="product.skus">
