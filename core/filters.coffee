@@ -15,7 +15,7 @@ angular.module('app.core').filter 'priceRange', ($filter) ->
     if msrps.length is 1 then return $filter('centToDollar')(msrps[0])
     min = Math.min.apply(Math, msrps)
     max = Math.max.apply(Math, msrps)
-    '' + $filter('centToDollar')(min) + ' - ' + $filter('centToDollar')(max)
+    '' + $filter('centToDollar')(min) + '-' + $filter('centToDollar')(max)
 
 angular.module('app.core').filter 'percentage', ($filter) ->
   # Usage: | percentage:2
