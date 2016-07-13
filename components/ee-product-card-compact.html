@@ -1,7 +1,51 @@
-<div class="text-left">
+<div class="text-center bg-white">
   <span class="homepage-product inline-block vertical-align-top">
-    <ee-product-for-store product="product" sku-link=true></ee-product-for-store>
+    <ee-product-for-store
+      product="product"
+      hide-sale=true
+      hide-price=true
+      hide-heart=true
+      sku-link=true>
+    </ee-product-for-store>
   </span>
+
+  <span class="homepage-product inline-block vertical-align-top text-left"
+    style="max-width: 48%;">
+    <div class="position-relative bg-white pad-5 overflow-hidden"
+      style="max-width: 218px;">
+      <div ng-bind="product.title" class="line-height-1-1"></div>
+      <div ng-if="product.skus.length == 1" class="vert-5">
+        <h4 ng-bind="product.skus[0].price | centToDollar"
+          class="inline-block margin-0" style="margin-right: 10px !important;">
+        </h4>
+        <h5 ng-if="product.skus[0].shipping_price > 0"
+          class="inline-block margin-0 text-muted">
+          <span ng-bind="product.skus[0].shipping_price | centToDollar"></span>&nbsp;s&h
+        </h5>
+        <h5 ng-if="product.skus[0].shipping_price == 0"
+          class="inline-block margin-0 text-success">Free Shipping
+        </h5>
+        <!-- <ee-paypal-button></ee-paypal-button> -->
+        <div class="btn btn-default btn-block vert-5" style="background-color: #FFBA1E;">Express Checkout</div>
+        <div ng-if="product.skus[0].length || product.skus[0].width || product.skus[0].height">
+          <img src="https://res.cloudinary.com/eeosk/image/upload/c_scale,w_30/v1447453155/ruler.png"
+            class="hidden-xs"/>
+          <span ng-if="product.skus[0].length">{{ product.skus[0].length }}"L </span>
+          <strong ng-if="product.skus[0].length && product.skus[0].width">&times;</strong>
+          <span ng-if="product.skus[0].width">{{ product.skus[0].width }}"W </span>
+          <strong ng-if="product.skus[0].width && product.skus[0].height">&times;</strong>
+          <span ng-if="product.skus[0].height">{{ product.skus[0].height }}"H </span>
+        </div>
+        <div>
+          <a href class="text-dark-blue">More details</a>
+        </div>
+      </div>
+      <div ng-if="product.skus.length > 1">
+
+      </div>
+    </div>
+  </span>
+
 </div>
 
 <!-- Similar products -->

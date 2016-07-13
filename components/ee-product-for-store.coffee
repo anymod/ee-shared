@@ -8,9 +8,11 @@ angular.module('ee-product-for-store').directive "eeProductForStore", ($state, $
   scope:
     product: '='
     skuLink: '@'
+    hidePrice: '@'
+    hideSale: '@'
+    hideHeart: '@'
   link: (scope, ele, attr) ->
-    scope.state = $state.current.name
-    scope.hideButtons = true
+    if $state.current.name is 'sale' then scope.hideSale = true
     scope.getHref = () ->
       return '/' unless scope.product.id
       title = $filter('urlText')(scope.product.title )
