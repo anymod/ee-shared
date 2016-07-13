@@ -1,20 +1,20 @@
 <div class="product-container position-relative pad-5 overflow-hidden">
-  <a class="product" ui-sref="product({ id: product.id, title: (product.title | urlText) })">
+  <a class="product" ng-href="{{ getHref() }}">
     <img ee-image-fadein
       ee-src="{{ product.image }}"
       ee-w=220 ee-h=220 ee-trim=true
       load-boolean="hideButtons"
       class="img-responsive full-width transition-400">
-    <div ng-hide="hideButtons"
+    <!-- <div ng-hide="hideButtons"
       class="position-absolute text-left"
       style="bottom: -4px; right: 3px;">
       <h6 class="inline-block vert-0 round-5 text-dark line-height-1-1 font-weight-200"
         style="background: rgba(255,255,255,0.65); padding: 0 2px;">favorite
       </h6>
-    </div>
+    </div> -->
     <div ng-hide="hideButtons || product.discounted"
-      class="position-absolute text-center"
-      style="bottom: 14px; left: 1px; right: 2px">
+      class="position-absolute text-left"
+      style="bottom: 14px; left: 4px;">
       <h6 class="inline-block vert-0 round-5 text-dark line-height-1-1"
         style="background: rgba(255,255,255,0.65); padding: 0 2px;"
         ng-bind="product.prices | priceRange">
@@ -22,7 +22,7 @@
     </div>
     <!-- <h5 class="product-title vert-5 text-dark-blue font-weight-200" ng-bind="product.title"></h5> -->
   </a>
-  <div ng-if="!product.discounted">
+  <!-- <div ng-if="!product.discounted">
     <a ng-hide="hideButtons"
       ui-sref="search({ q: product.title, c: product.category_id })"
       class="position-absolute text-left"
@@ -41,7 +41,7 @@
         similar
       </h6>
     </a>
-  </div>
+  </div> -->
   <div ng-if="product.discounted"
     ng-hide="hideButtons"
     class="position-absolute"
