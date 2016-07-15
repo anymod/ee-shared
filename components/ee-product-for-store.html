@@ -1,5 +1,5 @@
 <div class="product-container position-relative pad-5 overflow-hidden">
-  <a class="product" ng-href="{{ getHref() }}">
+  <div class="product hover-pointer" ng-click="imageClick()">
     <img ee-image-fadein
       ee-src="{{ product.image }}"
       ee-w=220 ee-h=220 ee-trim=true
@@ -22,7 +22,7 @@
       </h6>
     </div>
     <!-- <h5 class="product-title vert-5 text-dark-blue font-weight-200" ng-bind="product.title"></h5> -->
-  </a>
+  </div>
   <!-- <div ng-if="!product.discounted">
     <a ng-hide="hideButtons"
       ui-sref="search({ q: product.title, c: product.category_id })"

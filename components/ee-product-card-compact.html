@@ -14,6 +14,8 @@
     <div class="position-relative bg-white pad-5 overflow-hidden"
       style="max-width: 218px;">
       <div ng-bind="product.title" class="line-height-1-1"></div>
+
+      <!-- Single Sku -->
       <div ng-if="product.skus.length == 1" class="vert-5">
         <h4 ng-bind="product.skus[0].price | centToDollar"
           class="inline-block margin-0" style="margin-right: 10px !important;">
@@ -37,12 +39,19 @@
           <span ng-if="product.skus[0].height">{{ product.skus[0].height }}"H </span>
         </div>
         <div>
-          <a href class="text-dark-blue">More details</a>
+          <a href ng-click="showSkuPage()"
+            class="text-dark-blue">
+            More details
+          </a>
         </div>
       </div>
+      <!-- /Single Sku -->
+      
+      <!-- Multiple Skus -->
       <div ng-if="product.skus.length > 1">
 
       </div>
+      <!-- /Multiple Skus -->
     </div>
   </span>
 
