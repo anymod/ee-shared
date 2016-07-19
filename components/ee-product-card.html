@@ -36,15 +36,18 @@
               class="inline-block margin-0 text-success">Free Shipping
             </h5>
 
-            <!-- <ee-paypal-button></ee-paypal-button> -->
             <!-- <div class="btn btn-default btn-block vert-5" style="background-color: #FFBA1E;">Express Checkout</div> -->
             <div class="vert-7">
-              <div class="btn btn-block btn-themed"
+              <ee-paypal-button
+                sku="currentSku"
+                button-size="small">
+              </ee-paypal-button>
+              <!-- <div class="btn btn-block btn-themed"
                 ng-if="currentSku.quantity > 0 && !currentSku.discontinued"
                 ng-disabled="disabled || adding"
                 ng-click="addToCart(currentSku)"
                 ng-bind="addingText || 'Add to cart'">
-              </div>
+              </div> -->
               <div class="btn btn-info btn-block disabled" ng-if="currentSku.quantity < 1 && !currentSku.discontinued" disabled>Out of Stock</div>
               <div class="btn btn-info btn-block disabled" ng-if="currentSku.discontinued" disabled>Discontinued</div>
             </div>
@@ -135,14 +138,21 @@
           </h4>
 
           <div class="vert-7">
-            <div class="btn btn-lg btn-block btn-themed"
+            <ee-paypal-button sku="currentSku"></ee-paypal-button>
+
+            <h4 class="vert-10 text-center text-muted font-weight-200">
+              OR
+            </h4>
+
+            <div class="btn btn-block btn-default"
               ng-if="currentSku.quantity > 0 && !currentSku.discontinued"
               ng-disabled="disabled || adding"
-              ng-click="addToCart(currentSku)"
-              ng-bind="addingText || 'Add to cart'">
+              ng-click="addToCart(currentSku)">
+              <i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Add to cart
             </div>
-            <div class="btn btn-info btn-lg btn-block disabled" ng-if="currentSku.quantity < 1" disabled>Out of Stock</div>
-            <div class="btn btn-info btn-lg btn-block disabled" ng-if="currentSku.discontinued" disabled>Discontinued</div>
+            <div class="btn btn-info btn-block disabled" ng-if="currentSku.quantity < 1" disabled>Out of Stock</div>
+            <div class="btn btn-info btn-block disabled" ng-if="currentSku.discontinued" disabled>Discontinued</div>
+
           </div>
           <div class="text-center product-info">
             <h4 ng-if="currentSku.length || currentSku.width || currentSku.height"

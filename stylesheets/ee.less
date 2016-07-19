@@ -71,6 +71,46 @@
 .bg-success,
 .hover-bg-success:hover { background-color: @brand-success !important; color: white; }
 
+// paypal
+.btn-paypal {
+  img { width: 93px; height: 25px; }
+  background: #ffc439 !important;
+  text-shadow: 0px 1px 0 #ffdc88;
+  color: black;
+  border: none !important;
+  height: 44px;
+  line-height: 30px;
+  padding: 7px;
+  &:hover, &:focus {
+    background: #edb633 !important;
+    color: black;
+  }
+  .paypal-text {
+    width: 110px;
+    margin-left: 8px;
+    font-size: 13px;
+    line-height: 1.1em;
+    white-space: pre-line;
+    text-align: left;
+  }
+}
+.btn-paypal.disabled { background-color: #ffc439 !important; }
+.btn-paypal.btn-paypal-sm {
+  img { width: 80px; }
+  height: 40px;
+  line-height: 26px;
+  .paypal-text {
+    width: 46px;
+    font-size: 10px;
+    height: 26px;
+  }
+}
+.paypal-subtext {
+  font-size: 9px;
+  line-height: 10px;
+  color: #003366;
+}
+
 // social
 @brand-facebook: #3b5998;
 @brand-pinterest: #cc2127;
