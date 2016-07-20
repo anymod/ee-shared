@@ -10,17 +10,16 @@ module.directive "eePaypalButton", ($timeout, eeCart, eeBack, eeEnvironment) ->
     buttonSize: '@'
   link: (scope, ele, attrs) ->
     uuid = eeCart.data.uuid
-    return unless uuid?
     scope.showButton = false
 
     scope.initPaypal = () ->
+      return unless uuid? or scope.sku?.id?
       paypal.checkout.initXO()
       data = if scope.sku?.id? then { sku_id: scope.sku.id } else { cart_uuid: uuid }
-      console.log 'DATA', scope.sku
       eeBack.fns.paymentPOST data
       .then (res) -> paypal.checkout.startFlow res.href
       .catch (err) ->
-        console.log 'Problem with checkout flow'
+        console.log 'Problem with checkout flow', err
         paypal.checkout.closeFlow()
 
     delayAndShowButton = () ->
