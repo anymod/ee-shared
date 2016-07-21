@@ -32,4 +32,8 @@ module.directive "eeProductCard", ($rootScope, $state, $location, $filter) ->
       # title = $filter('urlText')(scope.product.title )
       # $state.go('sku', { obfuscated_id: scope.product.skus[0].obfuscated_id, title: title }, { notify: false, reload: false })
 
+    $rootScope.$on 'product:navigate', (e, prod) ->
+      scope.setCurrentSku prod.skus[0]
+      scope.expanded = false
+
     return

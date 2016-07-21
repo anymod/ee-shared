@@ -7,9 +7,10 @@
       <span class="homepage-product inline-block vertical-align-top position-relative">
         <a ng-href="{{ product.image }}" class="product">
           <img ee-image-fadein
-            ee-src="{{ product.image }}"
+            ee-src="product.image"
             ee-w=220 ee-h=220 ee-trim=true
             load-boolean=false
+            watch=true
             class="img-responsive full-width transition-400">
           <div class="position-absolute"
             style="bottom: 0; right: 0; padding: 15px 0 0 15px;">
@@ -270,7 +271,15 @@
 
   <!-- Similar products -->
   <div ng-if="products.length > 0" class="vert-5 margin-bottom-0 text-center">
-    <h5 class="font-weight-200 text-center pad-5 border-bottom-gray">You might also like</h5>
+    <h5 class="font-weight-200 text-center pad-5 vert-10 margin-bottom-0">Search similar</h5>
+    <!-- <div class="gray-border white-background round-5 text-left vert-10 margin-top-0">
+      <span ng-repeat="word in (product.title | tokenizeForSearch)"
+        class="btn btn-default btn-sm pad-5 margin-2 margin-left-0">
+        <span ng-bind="word"></span>&nbsp;<i class="fa fa-times text-muted"></i>
+      </span>
+      <input type="text" class="no-border" placeholder="Add a term">
+    </div> -->
+    <ee-search-token></ee-search-token>
     <ee-products-list
       products="products"
       show-signup=true>

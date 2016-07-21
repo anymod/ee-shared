@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('app.core').filter 'reverse', ($filter) ->
+angular.module('app.core').filter 'reverse', () ->
   (elems) ->
     if !elems then return []
     elems.slice().reverse()
@@ -33,13 +33,13 @@ angular.module('app.core').filter 'discountRange', ($filter) ->
     if max is min then return '' + max + '%'
     '' + min + '-' + max + '%'
 
-angular.module('app.core').filter 'truncate', ($filter) ->
+angular.module('app.core').filter 'truncate', () ->
   # Usage: | truncate:20
   (input, n) ->
     return '' unless input
     if input.length <= (n-3) then input else input.substring(0, n-3) + '...'
 
-angular.module('app.core').filter 'removeHash', ($filter) ->
+angular.module('app.core').filter 'removeHash', () ->
   (input, n) ->
     return '' unless input
     input.replace(/#/g, '')
@@ -112,6 +112,14 @@ angular.module('app.core').filter 'humanize', () ->
     frags = text.split /_|-/
     (frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1)) for i in [0..(frags.length - 1)]
     frags.join(' ')
+
+angular.module('app.core').filter 'tokenizeForSearch', ($filter, stopWords) ->
+  (text) ->
+    words = $filter('urlText')(text).split('-')
+    filtered_words = []
+    for word in words
+      if stopWords.indexOf(word) < 0 then filtered_words.push(word.charAt(0).toUpperCase() + word.slice(1))
+    filtered_words
 
 # angular.module('app.core').filter 'in_carousel', () ->
 #   (collections) ->
