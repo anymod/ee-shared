@@ -7,22 +7,20 @@
   </div> -->
   <!-- /collection image -->
 
-  <!-- <pre>{{ data.inputs | json }}</pre> -->
-
-  <div class="gray-border white-background round-5 pad-2 pad-bottom-0 text-left vert-10 margin-top-0"
+  <div class="gray-border white-background round-5 pad-2 pad-bottom-0 text-left"
     ng-click="focusBox()">
     <span ng-repeat="token in data.inputs.searchTokens"
-      class="btn btn-default btn-sm pad-5" style="margin: 0 2px 2px 0">
+      class="btn btn-default btn-sm" style="margin: 0 2px 2px 0; padding: 3px 5px;">
       <span ng-bind="token" ng-click="searchToken(token)"></span>
       &nbsp;
       <i class="fa fa-times text-muted" ng-click="removeFromSearch(token)"></i>
     </span>
     <form ng-submit="addToSearch()" class="inline-block margin-0 pad-2">
-      <input type="text"
+      <input type="text" id="tokenBox"
         ng-model="boxValue"
         ng-keydown="adjustBox()"
         ng-style="{ width: boxWidth + 'px' }"
-        class="no-border"
+        class="border-none"
         style="outline: none !important;"
         placeholder="Add a term">
     </form>
@@ -49,6 +47,22 @@
       </button>
     </span>
   </form> -->
+
+  <div class="full-width text-right vert-5 margin-top-0 line-height-1">
+    <small class="text-muted hover-pointer"
+      style="margin-right: 2px;">
+      <i class="fa fa-fw fa-sliders"></i>
+      <span ng-if="data.inputs.category">Category: {{ data.inputs.category.title }}</span>
+      <span ng-if="data.inputs.category && data.inputs.order.order"><br></span>
+      <span ng-if="data.inputs.order.order">Order: {{ data.inputs.order.title }}&nbsp;</span>
+      <span ng-if="data.inputs.order.order && (data.inputs.range.min || data.inputs.range.max)"><br></span>
+      <span ng-if="data.inputs.range.min || data.inputs.range.max">Price: {{ data.inputs.range | rangeToText }}</span>
+      <!-- <i class="fa fa-fw fa-sliders"></i>&nbsp;options&nbsp; -->
+      <span ng-if="!data.inputs.category && ! data.inputs.order.order && !data.inputs.range.min && !data.inputs.range.max">
+        search options
+      </span>
+    </small>
+  </div>
 
   <div class="vert-5 margin-top-0" ng-hide="hideSort" ng-if="false">
     <!-- category -->

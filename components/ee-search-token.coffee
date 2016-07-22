@@ -2,7 +2,7 @@
 
 angular.module 'ee-search-token', []
 
-angular.module('ee-search-token').directive 'eeSearchToken', ($state, $stateParams, eeProducts, eeCollection) ->
+angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, $stateParams, eeProducts, eeCollection) ->
   templateUrl: 'ee-shared/components/ee-search-token.html'
   restrict: 'EA'
   scope: {}
@@ -26,7 +26,7 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $statePara
     scope.searchToken = (token) ->
       $state.go 'search', { q: token }
 
-    scope.focusBox = () -> console.log 'focus'
+    scope.focusBox = () -> $window.document.getElementById('tokenBox').focus()
 
     scope.adjustBox = () ->
       letterCount = scope.boxValue.length

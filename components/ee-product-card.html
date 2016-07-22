@@ -5,7 +5,8 @@
   <div ng-if="!expanded">
     <div class="text-center bg-white">
       <span class="homepage-product inline-block vertical-align-top position-relative">
-        <a ng-href="{{ product.image }}" class="product">
+        <a ng-href="{{ product.image }}" class="product inline-block"
+          style="width: 300px; max-width: 100%; min-height: 160px;">
           <img ee-image-fadein
             ee-src="product.image"
             ee-w=220 ee-h=220 ee-trim=true
@@ -270,23 +271,21 @@
   <!-- /CARD EXPANDED -->
 
   <!-- Similar products -->
-  <div ng-if="products.length > 0" class="vert-5 margin-bottom-0 text-center">
+  <div class="vert-5 margin-bottom-0 text-center">
     <h5 class="font-weight-200 text-center pad-5 vert-10 margin-bottom-0">Search similar</h5>
-    <!-- <div class="gray-border white-background round-5 text-left vert-10 margin-top-0">
-      <span ng-repeat="word in (product.title | tokenizeForSearch)"
-        class="btn btn-default btn-sm pad-5 margin-2 margin-left-0">
-        <span ng-bind="word"></span>&nbsp;<i class="fa fa-times text-muted"></i>
-      </span>
-      <input type="text" class="no-border" placeholder="Add a term">
-    </div> -->
+
     <ee-search-token></ee-search-token>
-    <ee-products-list
-      products="products"
-      show-signup=true>
-    </ee-products-list>
-    <a ui-sref="search({ q: product.title })" class="btn btn-themed vert-10">
-      <i class="fa fa-search"></i>&nbsp;more like these
-    </a>
+
+    <div ng-if="products.length > 0">
+      <ee-products-list
+        products="products"
+        show-signup=true>
+      </ee-products-list>
+      <a ui-sref="search({ q: product.title })" class="btn btn-themed vert-10">
+        <i class="fa fa-search"></i>&nbsp;more like these
+      </a>
+    </div>
+
   </div>
   <!-- /Similar products -->
 

@@ -25,8 +25,8 @@
       </a>
       <!-- /Logo -->
       <div class="pull-right pad-5 vert-7">
-        <a ui-sref="search" class="white-color no-underline">
-          <i class="fa fa-lg fa-search text-muted"></i>
+        <a ui-sref="cart" class="text-muted no-underline">
+          <i class="fa fa-lg fa-shopping-cart pad-5"></i>
         </a>
       </div>
     </div>
@@ -36,17 +36,17 @@
   <div class="container container-narrow">
     <div class="row">
       <div class="col-xs-4">
-        <a href ng-click="sidenavOpen = true" class="white-color no-underline">
+        <a href ng-click="sidenavOpen = true" class="text-white no-underline">
           <i class="fa fa-2x fa-bars pad-10"></i>
         </a>
       </div>
       <div class="col-xs-4 text-center">
-        <i class="fa fa-2x fa-heart pad-10 white-color hover-pointer" ng-click="modalOrFavorites()"></i>
+        <a ui-sref="search" class="text-white no-underline">
+          <i class="fa fa-2x fa-search pad-10"></i>
+        </a>
       </div>
       <div class="col-xs-4 text-right">
-        <a ui-sref="cart" class="white-color no-underline">
-          <i class="fa fa-2x fa-shopping-cart pad-10"></i>
-        </a>
+        <i class="fa fa-2x fa-heart pad-10 text-white hover-pointer" ng-click="modalOrFavorites()"></i>
       </div>
     </div>
   </div>
