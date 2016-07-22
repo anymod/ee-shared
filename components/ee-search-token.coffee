@@ -2,11 +2,13 @@
 
 angular.module 'ee-search-token', []
 
-angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, $stateParams, eeProducts, eeCollection) ->
+angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, eeProducts, eeModal) ->
   templateUrl: 'ee-shared/components/ee-search-token.html'
   restrict: 'EA'
-  scope: {}
+  scope:
+    showDetails: '@'
   link: (scope, ele, attr) ->
+    box = ele.find('input')
     scope.data  = eeProducts.data
     scope.fns   = eeProducts.fns
     scope.boxWidth = 80
@@ -23,10 +25,14 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, $
     #     $stateParams.title =  category.title
     #     $state.go 'category', $stateParams
 
+    scope.openSearchModal = () -> eeModal.fns.open 'search'
+
     scope.searchToken = (token) ->
       $state.go 'search', { q: token }
 
-    scope.focusBox = () -> $window.document.getElementById('tokenBox').focus()
+    scope.focusBox = () ->
+      box.focus()
+      return
 
     scope.adjustBox = () ->
       letterCount = scope.boxValue.length

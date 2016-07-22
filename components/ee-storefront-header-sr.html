@@ -41,9 +41,9 @@
         </a>
       </div>
       <div class="col-xs-4 text-center">
-        <a ui-sref="search" class="text-white no-underline">
+        <div ng-click="openSearchModal()" class="text-white no-underline hover-pointer">
           <i class="fa fa-2x fa-search pad-10"></i>
-        </a>
+        </div>
       </div>
       <div class="col-xs-4 text-right">
         <i class="fa fa-2x fa-heart pad-10 text-white hover-pointer" ng-click="modalOrFavorites()"></i>
@@ -72,14 +72,6 @@
     </nav>
     <div class="pad-20 pad-top-0">
       <ul class="nav navbar-nav">
-        <!-- search -->
-        <li class="full-width">
-          <a ui-sref="search" class="text-muted">Search</a>
-        </li>
-        <!-- /search -->
-        <li class="full-width">
-          <hr class="vert-5">
-        </li>
         <!-- sale -->
         <li class="full-width">
           <a ui-sref="sale({ id: 13016 })" class="text-muted">Sale</a>

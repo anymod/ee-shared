@@ -34,6 +34,8 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites
     scope.search = (query, page) ->
       $state.go 'search', { q: (query || scope.query), p: (page || scope.page) }
 
+    scope.openSearchModal = () -> eeModal.fns.open 'search'
+
     $rootScope.$on 'search:query', (e, data) -> scope.search data.q, 1
 
     assignCategories()
