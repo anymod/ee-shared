@@ -9,12 +9,23 @@
 
   <!-- <pre>{{ data.inputs | json }}</pre> -->
 
-  <div class="gray-border white-background round-5 pad-2 text-left vert-10 margin-top-0">
-    <span ng-repeat="word in data.inputs.searchTokens"
+  <div class="gray-border white-background round-5 pad-2 pad-bottom-0 text-left vert-10 margin-top-0"
+    ng-click="focusBox()">
+    <span ng-repeat="token in data.inputs.searchTokens"
       class="btn btn-default btn-sm pad-5" style="margin: 0 2px 2px 0">
-      <span ng-bind="word" ng-click="searchToken(word)"></span>&nbsp;<i class="fa fa-times text-muted"></i>
+      <span ng-bind="token" ng-click="searchToken(token)"></span>
+      &nbsp;
+      <i class="fa fa-times text-muted" ng-click="removeFromSearch(token)"></i>
     </span>
-    <input type="text" class="no-border" placeholder="Add a term">
+    <form ng-submit="addToSearch()" class="inline-block margin-0 pad-2">
+      <input type="text"
+        ng-model="boxValue"
+        ng-keydown="adjustBox()"
+        ng-style="{ width: boxWidth + 'px' }"
+        class="no-border"
+        style="outline: none !important;"
+        placeholder="Add a term">
+    </form>
   </div>
 
   <!-- <form class="form-group input-group" ng-submit="fns.search()" ng-class="hideSort ? 'margin-0' : 'vert-10'">

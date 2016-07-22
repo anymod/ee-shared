@@ -9,6 +9,8 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $statePara
   link: (scope, ele, attr) ->
     scope.data  = eeProducts.data
     scope.fns   = eeProducts.fns
+    scope.boxWidth = 80
+    scope.boxValue = ''
     # scope.collectionData = eeCollection.data
     # scope.state = $state
 
@@ -23,6 +25,19 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $statePara
 
     scope.searchToken = (token) ->
       $state.go 'search', { q: token }
-      # eeProducts.fns.searchLike token
+
+    scope.focusBox = () -> console.log 'focus'
+
+    scope.adjustBox = () ->
+      letterCount = scope.boxValue.length
+      scope.boxWidth = letterCount * 9
+      if scope.boxWidth < 80 then scope.boxWidth = 80
+      if scope.boxWidth > 300 then scope.boxWidth = 300
+
+    scope.addToSearch = () ->
+      eeProducts.fns.addToSearch scope.boxValue
+      scope.boxValue = ''
+
+    scope.removeFromSearch = (token) -> eeProducts.fns.removeFromSearch token
 
     return
