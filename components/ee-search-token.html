@@ -1,123 +1,47 @@
 <div class="text-left">
 
-  <!-- collection image -->
-  <!-- <div ng-show="(state.current.name == 'collection' || state.current.name == 'sale') && collectionData.collection.banner"
-    class="text-center">
-    <img ng-src="{{ collectionData.collection.banner | cloudinaryResizeTo:200:118 }}">
-  </div> -->
-  <!-- /collection image -->
-
   <div class="white-background round-5 pad-2 pad-bottom-0 text-left"
     style="border: 1px solid #CCC;"
     ng-click="focusBox()">
-    <span ng-repeat="token in data.inputs.searchTokens"
-      class="btn btn-default btn-sm" style="margin: 0 2px 2px 0; padding: 3px 5px;">
-      <span ng-bind="token" ng-click="searchToken(token)"></span>
-      &nbsp;
-      <i class="fa fa-times text-muted" ng-click="removeFromSearch(token)"></i>
+    <span ng-repeat="token in data.fromParams.queryTokens"
+      class="btn btn-default gray-border pad-5"
+      style="margin: 0 2px 2px 0;"
+      ng-bind="token"
+      ng-click="searchToken(token)">
+      <!-- &nbsp; -->
+      <!-- <i class="fa fa-times text-muted" ng-click="removeFromSearch(token)"></i> -->
     </span>
-    <form ng-submit="addToSearch()" class="inline-block margin-0 pad-2">
+    <form ng-submit="addToQuery()" class="inline-block margin-0 pad-5">
       <input type="text"
         ng-model="boxValue"
         ng-keydown="adjustBox()"
         ng-style="{ width: boxWidth + 'px' }"
         class="border-none"
         style="outline: none !important;"
-        placeholder="Add a term">
+        placeholder="Search products">
     </form>
   </div>
 
-  <!-- <form class="form-group input-group" ng-submit="fns.search()" ng-class="hideSort ? 'margin-0' : 'vert-10'">
-    <input type="text"
-      class="form-control full-width-important"
-      placeholder="Search for products"
-      ng-model="data.inputs.search"
-      style="box-shadow: none; padding: 8px 20px; min-height: 38px;">
-    <span class="input-group-btn" ng-if="data.inputs.search">
-      <button class="btn btn-default round-0 no-side-border" type="button"
-        style="padding: 8px 15px; min-height: 38px;"
-        ng-click="fns.clearSearch()">
-        <i class="fa fa-times text-muted"></i>
-      </button>
-    </span>
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="submit"
-        style="padding: 8px 20px; min-height: 38px; border-bottom-width: 1px !important;">
-        <span class="hidden-xs">Search&nbsp;&nbsp;<i class="fa fa-caret-right"></i></span>
-        <span class="visible-xs"><i class="fa fa-fw fa-search"></i></span>
-      </button>
-    </span>
-  </form> -->
-
-  <div class="full-width text-right vert-5 margin-top-0 line-height-1"
-    ng-if="showDetails">
-    <small ng-click="openSearchModal()"
-      class="text-muted hover-pointer"
-      style="margin-right: 2px;">
+  <div class="full-width text-right line-height-1"
+    style="padding: 5px 2px;">
+    <small class="pull-left text-muted hover-pointer"
+      ng-click="clearSearchQuery()"
+      ng-if="data.fromParams.queryTokens.length > 0">
+      <i class="fa fa-times"></i>&nbsp;Clear search
+    </small>
+    <small ng-if="showDetails"
+      ng-click="openSearchModal()"
+      class="text-muted hover-pointer">
       <i class="fa fa-fw fa-sliders"></i>
-      <span ng-if="data.inputs.category">Category: {{ data.inputs.category.title }}</span>
-      <span ng-if="data.inputs.category && data.inputs.order.order"><br></span>
-      <span ng-if="data.inputs.order.order">Order: {{ data.inputs.order.title }}&nbsp;</span>
-      <span ng-if="data.inputs.order.order && (data.inputs.range.min || data.inputs.range.max)"><br></span>
-      <span ng-if="data.inputs.range.min || data.inputs.range.max">Price: {{ data.inputs.range | rangeToText }}</span>
-      <!-- <i class="fa fa-fw fa-sliders"></i>&nbsp;options&nbsp; -->
-      <span ng-if="!data.inputs.category && ! data.inputs.order.order && !data.inputs.range.min && !data.inputs.range.max">
-        search options
+      <span ng-if="data.params.c">Category: {{ data.fromParams.categoryTitle }}</span>
+      <br ng-if="data.params.c && data.params.s">
+      <span ng-if="data.params.s">Order: {{ data.fromParams.orderTitle }}</span>
+      <br ng-if="data.params.r && (data.params.s || data.params.c)">
+      <span ng-if="data.params.r">Price: {{ data.params.r | rangeToText }}</span>
+      <span ng-if="!data.params.c && !data.params.s && !data.params.r">
+        Search options
       </span>
     </small>
   </div>
 
-  <div class="vert-5 margin-top-0" ng-hide="hideSort" ng-if="false">
-    <!-- category -->
-    <span class="dropdown" ng-hide="state.current.name == 'collection'" uib-dropdown>
-      <div class="btn btn-sm" ng-class="data.inputs.category.id ? 'btn-themed' : 'btn-default'" uib-dropdown-toggle>
-        <span ng-show="data.inputs.category" ng-bind="data.inputs.category.title"></span>
-        <span ng-hide="data.inputs.category">Category</span>&nbsp;<i class="caret"></i>
-      </div>
-      <ul class="dropdown-menu" uib-dropdown-menu>
-        <li ng-repeat="category in data.inputs.categories" ng-class="{ active: data.inputs.category.id == category.id }">
-          <a href ng-bind="category.title" ng-click="setCategory({ id: category.id, title: (category.title | urlText) })"></a>
-        </li>
-        <li ng-show="data.inputs.category" class="divider"></li>
-        <li ng-show="data.inputs.category">
-          <a href ng-click="setCategory()">Reset</a>
-        </li>
-      </ul>
-    </span>
-    <!-- /category -->
-    <!-- price range -->
-    <span class="dropdown" uib-dropdown>
-      <div class="btn btn-sm" ng-class="data.inputs.range.min || data.inputs.range.max ? 'btn-themed' : 'btn-default'" uib-dropdown-toggle>
-        <span ng-show="data.inputs.range.min || data.inputs.range.max" ng-bind="data.inputs.range | rangeToText"></span>
-        <span ng-hide="data.inputs.range.min || data.inputs.range.max">Price range</span>&nbsp;<i class="caret"></i>
-      </div>
-      <ul class="dropdown-menu" uib-dropdown-menu>
-        <li ng-repeat="range in data.inputs.rangeArray" ng-class="{ active: data.inputs.range.min == range.min }">
-          <a href ng-bind="range | rangeToText" ng-click="fns.setRange(range)"></a>
-        </li>
-        <li ng-show="data.inputs.range.min || data.inputs.range.max" class="divider"></li>
-        <li ng-show="data.inputs.range.min || data.inputs.range.max">
-          <a href ng-click="fns.setRange()">Reset</a>
-        </li>
-      </ul>
-    </span>
-    <!-- /price range -->
-    <!-- sort order -->
-    <span class="dropdown" uib-dropdown>
-      <div class="btn btn-sm" ng-class="data.inputs.order.order ? 'btn-themed' : 'btn-default'" uib-dropdown-toggle>
-        <span ng-show="data.inputs.order.order" ng-bind="data.inputs.order.title"></span>
-        <span ng-hide="data.inputs.order.order">Sort by</span>&nbsp;<i class="caret"></i>
-      </div>
-      <ul class="dropdown-menu" uib-dropdown-menu>
-        <li ng-repeat="order in data.inputs.orderArray" ng-class="{ active: data.inputs.order.order == order.order }">
-          <a href ng-bind="order.title" ng-click="fns.setOrder(order)"></a>
-        </li>
-        <li ng-show="data.inputs.order.order" class="divider"></li>
-        <li ng-show="data.inputs.order.order">
-          <a href ng-click="fns.setOrder()">Reset</a>
-        </li>
-      </ul>
-    </span>
-    <!-- /sort order -->
-  </div>
 </div>

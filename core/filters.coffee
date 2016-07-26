@@ -93,6 +93,11 @@ angular.module('app.core').filter 'truncateQty', () ->
 
 angular.module('app.core').filter 'rangeToText', () ->
   (range) ->
+    if typeof range is 'string' and range.indexOf('-') > 0
+      [min, max] = range.split('-')
+      range =
+        min: parseInt(min) * 100
+        max: parseInt(max) * 100
     if !range?.min and !range?.max then return 'Prices'
     ('$' + Math.floor(range.min)/100 + ' to $' + Math.floor(range.max)/100)
       .replace '$0 to', 'Under'

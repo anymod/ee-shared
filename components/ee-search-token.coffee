@@ -9,9 +9,11 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, e
     showDetails: '@'
   link: (scope, ele, attr) ->
     box = ele.find('input')
+    minBoxWidth = 110
+    maxBoxWidth = 300
     scope.data  = eeProducts.data
     scope.fns   = eeProducts.fns
-    scope.boxWidth = 80
+    scope.boxWidth = minBoxWidth
     scope.boxValue = ''
     # scope.collectionData = eeCollection.data
     # scope.state = $state
@@ -28,6 +30,8 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, e
     scope.openSearchModal = () -> eeModal.fns.open 'search'
 
     scope.searchToken = (token) ->
+      eeProducts.fns.setParam 'q', token
+      eeProducts.fns.runQuery()
       $state.go 'search', { q: token }
 
     scope.focusBox = () ->
@@ -37,13 +41,18 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, e
     scope.adjustBox = () ->
       letterCount = scope.boxValue.length
       scope.boxWidth = letterCount * 9
-      if scope.boxWidth < 80 then scope.boxWidth = 80
-      if scope.boxWidth > 300 then scope.boxWidth = 300
+      if scope.boxWidth < minBoxWidth then scope.boxWidth = minBoxWidth
+      if scope.boxWidth > maxBoxWidth then scope.boxWidth = maxBoxWidth
 
-    scope.addToSearch = () ->
-      eeProducts.fns.addToSearch scope.boxValue
+    scope.addToQuery = () ->
+      eeProducts.fns.addToQuery scope.boxValue
       scope.boxValue = ''
+      eeProducts.fns.runQuery()
 
-    scope.removeFromSearch = (token) -> eeProducts.fns.removeFromSearch token
+    # scope.removeFromSearch = (token) -> eeProducts.fns.removeFromSearch token
+
+    scope.clearSearchQuery = () ->
+      eeProducts.fns.setParam 'q', null
+      eeProducts.fns.runQuery()
 
     return

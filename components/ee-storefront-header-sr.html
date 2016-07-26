@@ -24,10 +24,13 @@
         <img ng-src="{{ user.logo | cloudinaryTrim }}" class="logo"/>
       </a>
       <!-- /Logo -->
-      <div class="pull-right pad-5 vert-7">
-        <a ui-sref="cart" class="text-muted no-underline">
+      <div class="pull-right vert-15">
+        <!-- <a ui-sref="cart" class="text-muted no-underline">
           <i class="fa fa-lg fa-shopping-cart pad-5"></i>
-        </a>
+        </a> -->
+        <small class="inline-block text-right text-muted line-height-1">
+          Free Shipping<br>Over $49
+        </small>
       </div>
     </div>
   </div>
@@ -82,7 +85,7 @@
         </li>
         <!-- categories -->
         <li ng-repeat="category in categories">
-          <a ui-sref="category({ id: category.id, title: (category.title | urlText) })"
+        <a ui-sref="category({ id: category.id, title: (category.title | urlText) })"
             class="text-muted"
             ng-bind="category.title">
           </a>

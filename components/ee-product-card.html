@@ -5,7 +5,7 @@
   <div ng-if="!expanded">
     <div class="text-center bg-white">
       <span class="homepage-product inline-block vertical-align-top position-relative">
-        <a ng-href="{{ product.image }}" class="product inline-block"
+        <div ng-click="expand()" class="product inline-block hover-pointer"
           style="width: 300px; max-width: 100%; min-height: 160px;">
           <img ee-image-fadein
             ee-src="product.image"
@@ -14,13 +14,13 @@
             watch=true
             class="img-responsive full-width transition-400">
           <div class="position-absolute"
-            style="bottom: 0; right: 0; padding: 15px 0 0 15px;">
+            style="bottom: 0; left: 0; padding: 15px 15px 0 0;">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x text-white" style="opacity: 0.7;"></i>
-              <i class="fa fa-search-plus fa-stack-1x text-dark"></i>
+              <i class="fa fa-expand fa-stack-1x text-dark"></i>
             </span>
           </div>
-        </a>
+        </div>
       </span><span class="homepage-product full-width inline-block vertical-align-top text-left">
         <div class="bg-white overflow-hidden" style="padding: 0 3px 0 8px">
           <div ng-bind="product.title" class="vert-5 margin-top-0 line-height-1-1"></div>
@@ -272,10 +272,13 @@
 
   <!-- Similar products -->
   <div class="vert-5 margin-bottom-0 text-center">
-    <h5 class="font-weight-200 text-center pad-5 vert-10 margin-bottom-0">Search similar</h5>
+    <a ui-sref="search({ q: product.title })"
+      class="text-center pad-5 vert-10 margin-bottom-0 text-muted">
+      <i class="fa fa-search"></i>&nbsp;<span class="text-underline">More like this</span>
+    </a>
 
     <div class="max-width-450 margin-0-auto">
-      <ee-search-token show-details=true></ee-search-token>
+      <!-- <ee-search-token show-details=true></ee-search-token> -->
     </div>
 
     <div ng-if="products.length > 0">
