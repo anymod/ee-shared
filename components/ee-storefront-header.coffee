@@ -2,7 +2,7 @@
 
 module = angular.module 'ee-storefront-header', []
 
-module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites, eeCart, eeModal, categories) ->
+module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites, eeCart, eeCoupon, eeModal, categories) ->
   templateUrl: 'ee-shared/components/ee-storefront-header.html'
   scope:
     user:           '='
@@ -18,6 +18,7 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites
     scope.state  = $state.current.name
     scope.id     = if scope.state is 'category' then parseInt($state.params.id) else null
     scope.cart   = eeCart.cart
+    scope.couponData = eeCoupon.data
 
     return unless scope.user
 

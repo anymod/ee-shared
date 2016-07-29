@@ -15,6 +15,16 @@
   }
 </style>
 
+<!-- Coupon Header -->
+<div ng-if="couponData.coupon.uuid"
+  class="full-width pad-5 text-center">
+  Welcome!&nbsp;
+  <strong ng-if="couponData.coupon.percentage_off"><span ng-bind="couponData.coupon.percentage_off | percentage"></span>&nbsp;Off</strong>
+  <strong ng-if="couponData.coupon.dollars_off"><span ng-bind="couponData.coupon.dollars_off | centToDollar"></span>&nbsp;Off</strong>
+  &nbsp;Applied at Checkout&nbsp;
+</div>
+<!-- /Coupon Header -->
+
 <!-- SR Nav -->
 <nav class="navbar navbar-default bg-white round-0 margin-0 no-side-border" style="border-top: none;">
   <div class="container container-narrow">
@@ -24,11 +34,18 @@
         <img ng-src="{{ user.logo | cloudinaryTrim }}" class="logo"/>
       </a>
       <!-- /Logo -->
-      <div class="pull-right vert-15">
-        <!-- <a ui-sref="cart" class="text-muted no-underline">
-          <i class="fa fa-lg fa-shopping-cart pad-5"></i>
-        </a> -->
-        <small class="inline-block text-right text-muted line-height-1">
+      <div class="pull-right vert-10">
+
+        <div class="hidden-xs">
+          <h4 class="inline-block vert-10 text-right font-weight-200 text-success">
+            Free Shipping over $49
+          </h4>
+          <a ui-sref="cart" class="text-muted no-underline"
+            style="margin: 0 5px 0 20px;">
+            <i class="fa fa-2x fa-shopping-cart"></i>
+          </a>
+        </div>
+        <small class="inline-block vert-5 text-right text-muted line-height-1 visible-xs">
           Free Shipping<br>Over $49
         </small>
       </div>
@@ -92,6 +109,14 @@
         </li>
         <!-- /categories -->
         <li ng-if="categories.length > 0">
+          <hr class="vert-5">
+        </li>
+        <!-- cart -->
+        <li>
+          <a ui-sref="cart" class="text-muted">Cart</a>
+        </li>
+        <!-- /cart -->
+        <li>
           <hr class="vert-5">
         </li>
         <!-- blog -->

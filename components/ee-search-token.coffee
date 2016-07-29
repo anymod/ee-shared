@@ -2,7 +2,7 @@
 
 angular.module 'ee-search-token', []
 
-angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, eeProducts, eeModal) ->
+angular.module('ee-search-token').directive 'eeSearchToken', ($state, eeProducts, eeModal) ->
   templateUrl: 'ee-shared/components/ee-search-token.html'
   restrict: 'EA'
   scope:
@@ -15,6 +15,9 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, e
     scope.fns   = eeProducts.fns
     scope.boxWidth = minBoxWidth
     scope.boxValue = ''
+
+    # scope.$watch 'boxValue', (e, data) -> scope.$emit 'search:boxValue', data
+
     # scope.collectionData = eeCollection.data
     # scope.state = $state
 
@@ -30,9 +33,9 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, e
     scope.openSearchModal = () -> eeModal.fns.open 'search'
 
     scope.searchToken = (token) ->
+      eeProducts.fns.setParam 'p', 1
       eeProducts.fns.setParam 'q', token
-      eeProducts.fns.runQuery()
-      $state.go 'search', { q: token }
+      # $state.go 'search', { p: 1, q: token }
 
     scope.focusBox = () ->
       box.focus()
@@ -45,14 +48,14 @@ angular.module('ee-search-token').directive 'eeSearchToken', ($state, $window, e
       if scope.boxWidth > maxBoxWidth then scope.boxWidth = maxBoxWidth
 
     scope.addToQuery = () ->
-      eeProducts.fns.addToQuery scope.boxValue
+      eeProducts.fns.setParam 'p', 1
+      eeProducts.fns.addToQuery eeProducts.data.fromParams.queryTokens.join(' ') + ' ' + scope.boxValue
       scope.boxValue = ''
-      eeProducts.fns.runQuery()
-
-    # scope.removeFromSearch = (token) -> eeProducts.fns.removeFromSearch token
 
     scope.clearSearchQuery = () ->
       eeProducts.fns.setParam 'q', null
-      eeProducts.fns.runQuery()
+      eeProducts.fns.setParam 'p', 1
+
+    scope.$on 'search:submit', () -> scope.addToQuery()
 
     return
