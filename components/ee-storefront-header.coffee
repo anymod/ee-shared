@@ -40,6 +40,7 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites
     $rootScope.$on 'search:query', (e, data) -> scope.search data.q, 1
 
     assignCategories()
+    
     scope.$on 'updated:user', () -> assignCategories()
 
     scope.openOfferModal = () -> eeModal.fns.open 'offer'

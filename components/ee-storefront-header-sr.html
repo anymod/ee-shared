@@ -17,7 +17,7 @@
 
 <!-- Coupon Header -->
 <div ng-if="couponData.coupon.uuid"
-  class="full-width pad-5 text-center">
+  class="full-width pad-5 text-center border-bottom-gray">
   Welcome!&nbsp;
   <strong ng-if="couponData.coupon.percentage_off"><span ng-bind="couponData.coupon.percentage_off | percentage"></span>&nbsp;Off</strong>
   <strong ng-if="couponData.coupon.dollars_off"><span ng-bind="couponData.coupon.dollars_off | centToDollar"></span>&nbsp;Off</strong>
