@@ -17,11 +17,14 @@
 
 <!-- Coupon Header -->
 <div ng-if="couponData.coupon.uuid"
-  class="full-width pad-5 text-center bg-themed" style="border-bottom-width: 1px !important;">
-  Welcome!&nbsp;
-  <strong ng-if="couponData.coupon.percentage_off"><span ng-bind="couponData.coupon.percentage_off | percentage"></span>&nbsp;Off</strong>
-  <strong ng-if="couponData.coupon.dollars_off"><span ng-bind="couponData.coupon.dollars_off | centToDollar"></span>&nbsp;Off</strong>
-  &nbsp;Applied at Checkout&nbsp;
+  class="full-width text-center bg-white"
+  style="margin-top: -1px; padding-bottom: 2px;">
+  <span class="inline-block bg-themed round-bottom"
+    style="padding: 5px 15px; border: none !important;">
+    <span ng-if="couponData.coupon.is_signup">Welcome!&nbsp;</span>
+    <strong ng-if="couponData.coupon.off_text" ng-bind="couponData.coupon.off_text"></strong>
+    &nbsp;applied at checkout&nbsp;
+  </span>
 </div>
 <!-- /Coupon Header -->
 
