@@ -2,7 +2,7 @@
   .design-band {
     height: 48px;
     width: 100%;
-    background: url({{ 'https://res.cloudinary.com/eeosk/image/upload/v1463444225/sr-floral.jpg' | cloudinaryResizeTo:1200:50:'fill' }}) no-repeat center center;
+    background: url({{ bannerSrc | cloudinaryResizeTo:1200:50:'fill' }}) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,7 +10,7 @@
   }
   @media (max-width: 678px) {
     .design-band {
-      background-image: url({{ 'https://res.cloudinary.com/eeosk/image/upload/v1463444225/sr-floral.jpg' | cloudinaryResizeTo:600:40:'fill' }}) no-repeat center center;
+      background-image: url({{ bannerSrc | cloudinaryResizeTo:600:40:'fill' }}) no-repeat center center;
     }
   }
 </style>
@@ -34,7 +34,8 @@
     <div class="margin-7">
       <!-- Logo -->
       <a ui-sref="storefront">
-        <img ng-src="{{ user.logo | cloudinaryTrim }}" class="logo"/>
+        <img ng-src="{{ user.logo | cloudinaryTrim }}"
+          class="logo max-width-200"/>
       </a>
       <!-- /Logo -->
       <div class="pull-right vert-10">
