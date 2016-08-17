@@ -264,6 +264,11 @@
         <tr ng-if="currentSku.meta.warranty">
           <td>Warranty</td><td ng-bind="currentSku.meta.warranty"></td>
         </tr>
+        <tr ng-repeat="pair in currentSku.meta.attributes.split('||')"
+          ng-if="pair.split(':=')[0].slice(0,6) != 'Carton'">
+          <td ng-bind="pair.split(':=')[0]"></td>
+          <td ng-bind="pair.split(':=')[1]"></td>
+        </tr>
       </table>
     </div>
     <!-- /currentSku details -->

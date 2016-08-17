@@ -1,12 +1,14 @@
 <!-- Coupon Header -->
 <div ng-if="couponData.coupon.uuid"
-  class="full-width text-center bg-white"
+  class="full-width text-center bg-secondary"
   style="margin-top: -1px; padding-bottom: 2px;">
-  <span class="inline-block bg-themed round-bottom"
+  <span class="inline-block bg-primary round-bottom"
     style="padding: 5px 15px; border: none !important;">
-    <span ng-if="couponData.coupon.is_signup">Welcome!&nbsp;</span>
-    <strong ng-if="couponData.coupon.off_text" ng-bind="couponData.coupon.off_text"></strong>
-    &nbsp;applied at checkout&nbsp;
+    <a ui-sref="cart" class="text-primary">
+      <span ng-if="couponData.coupon.is_signup">Welcome!&nbsp;</span>
+      <strong ng-if="couponData.coupon.off_text" ng-bind="couponData.coupon.off_text"></strong>
+      &nbsp;applied at checkout&nbsp;
+    </a>
   </span>
 </div>
 <!-- /Coupon Header -->
@@ -18,7 +20,7 @@
       <!-- Logo -->
       <a ui-sref="storefront">
         <img ng-src="{{ user.logo | cloudinaryTrim }}"
-          class="logo max-width-200"/>
+          class="logo"/>
       </a>
       <!-- /Logo -->
       <div class="pull-right vert-10">
