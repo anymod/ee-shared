@@ -21,7 +21,7 @@
         height: 14px;
         overflow: hidden;
         white-space: nowrap;"></div>
-      <div ng-bind="product.prices | priceRange"></div>
+      <strong ng-bind="product.prices | priceRange"></strong>
     </h6>
     <!-- <h5 class="product-title vert-5 text-dark-blue font-weight-200" ng-bind="product.title"></h5> -->
   </div>
@@ -46,12 +46,12 @@
     </a>
   </div> -->
   <div ng-if="product.discounted"
-    ng-hide="hideSale"
     class="position-absolute"
     style="bottom: 44px; left: -1px;">
     <a ui-sref="sale({ id: product.discounted })"
       class="btn btn-themed btn-arrow">
-      Sale
+      <span ng-hide="hideSale">Sale</span>
+      <span ng-show="hideSale" ng-bind="1 - (product.prices[0] / product.msrps[0]) | percentage:0"></span>
     </a>
   </div>
   <!-- <div ng-hide="hideHeart"
