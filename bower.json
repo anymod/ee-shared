@@ -13,6 +13,7 @@
     "bootstrap": "~3.3",
     "font-awesome": "~4.4",
     "angular-bootstrap": "~0.14",
-    "angularjs-slider": "~5.4.1"
+    "angularjs-slider": "~5.4.1",
+    "drift": "^0.3.4"
   }
 }
