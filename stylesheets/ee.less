@@ -4,6 +4,11 @@
 @import "../bower_components/angularjs-slider/src/rzslider";
 // @import url(https://rawgit.com/imgix/drift/master/dist/drift-basic.min.css);
 @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
+// @import "../stylesheets/prettyPhoto.css";
+@import "../stylesheets/price-range.css";
+@import "../stylesheets/animate.css";
+@import "../stylesheets/main.css";
+@import "../stylesheets/responsive.css";
 
 // ======================
 // bootstrap override
@@ -40,6 +45,63 @@
 .glyphicon-chevron-up:before { content: @fa-var-chevron-up; }
 .glyphicon-chevron-down:before { content: @fa-var-chevron-down; }
 .carousel-control:hover { cursor: pointer; }
+
+// Collection carousel
+.collection-carousel {
+  a.carousel-control {
+    position: absolute;
+    top: 50%;
+    bottom: inherit;
+    width: auto;
+    background: none;
+    opacity: 1;
+    font-size: 40px;
+    width: 65px;
+    height: 80px;
+    padding: 20px;
+    margin-top: -40px;
+    color: #C2C2C1;
+    .glyphicon {
+      color: #CCCCC6;
+      text-shadow: none;
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+      padding: 0 !important;
+    }
+    .glyphicon:hover {
+      color: #B6405F;
+    }
+  }
+  a.left { margin-left: -35px; }
+  a.right { margin-right: -35px; }
+  .carousel-indicators { display: none; }
+}
+
+// Product carousel
+.product-carousel {
+  a.carousel-control {
+    position: absolute;
+    top: 41%;
+    bottom: inherit;
+    width: auto;
+    background: none;
+    opacity: 1;
+    .glyphicon {
+      background: none repeat scroll 0 0 #B6405F;
+      color: #FFFFFF;
+      font-size: 15px;
+      text-shadow: none;
+      padding: 7px 9px;
+    }
+    .glyphicon:hover {
+      background: #ccccc6;
+    }
+  }
+  a.left { left: 15px; }
+  a.right { right: 15px; }
+  .carousel-indicators { display: none; }
+}
 
 // ======================
 // custom var
@@ -82,7 +144,7 @@
 @state-info-bg: #EFE5FF;
 @state-success-bg: #DAFFFB;
 
-@body-bg: @ee-light-light-gray;
+@body-bg: white; // @ee-light-light-gray;
 @text-color: #555459;
 
 .bg-white, .white-background { background: white !important; }
@@ -308,48 +370,37 @@ body.modal-open { overflow: visible; }
 }
 
 // Carousel
-@carousel-caption-height: 60px;
-.carousel { margin-bottom: @carousel-caption-height / 2; }
-// .carousel-inner { padding-bottom: @carousel-caption-height; }
-.carousel-control {
-  // bottom: @carousel-caption-height;
-  background: none !important;
-}
-.carousel-indicators {
-  display: none;
-  // bottom: -35px !important;
-  // right: 15px !important;
-  // left: inherit !important;
-  // text-align: right;
-  // li {
-  //   border: 1px solid @ee-muted !important;
-  //   background-color: @ee-light-light-gray !important;
-  // }
-  // .active { background-color: @ee-muted !important; }
-}
-.carousel-caption {
-  left: 0;
-  right: 0;
-  bottom: -@carousel-caption-height;
-  height: @carousel-caption-height;
-  padding: 0 3px;
-  color: @ee-dark-gray;
-  text-shadow: none;
-  text-align: left;
-  h4 {
-    font-weight: 200;
-    font-size: 24px;
-    line-height: 24px;
-  }
-}
-@media (max-width: 600px) {
-  .carousel { margin-bottom: 0; }
-  .carousel-control .glyphicon {
-    padding: 8px;
-    margin-top: -18px;
-    background: @ee-dark-gray;
-  }
-}
+// @carousel-caption-height: 60px;
+// .carousel { margin-bottom: @carousel-caption-height / 2; }
+// .carousel-control {
+//   background: none !important;
+// }
+// .carousel-indicators {
+//   display: none;
+// }
+// .carousel-caption {
+//   left: 0;
+//   right: 0;
+//   bottom: -@carousel-caption-height;
+//   height: @carousel-caption-height;
+//   padding: 0 3px;
+//   color: @ee-dark-gray;
+//   text-shadow: none;
+//   text-align: left;
+//   h4 {
+//     font-weight: 200;
+//     font-size: 24px;
+//     line-height: 24px;
+//   }
+// }
+// @media (max-width: 600px) {
+//   .carousel { margin-bottom: 0; }
+//   .carousel-control .glyphicon {
+//     padding: 8px;
+//     margin-top: -18px;
+//     background: @ee-dark-gray;
+//   }
+// }
 
 .pagination > li > a,
 .pagination > li > span { color: #777777; }
@@ -1263,3 +1314,7 @@ img.logo {
   li { width: 100%; }
 }
 .nav-side.open { left: 0; }
+
+// eshopper
+.product-overlay { display: none !important; }
+.productinfo img { padding: 20px; }

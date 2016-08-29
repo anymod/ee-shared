@@ -60,6 +60,11 @@ gulp.task 'copy-css', () ->
     .pipe gulp.dest storePath + '/stylesheets'
     .pipe gulp.dest srPath + '/stylesheets'
     .pipe gulp.dest securePath + '/stylesheets'
+  gulp.src './stylesheets/*.css'
+    .pipe gulp.dest frontPath + '/stylesheets'
+    .pipe gulp.dest storePath + '/stylesheets'
+    .pipe gulp.dest srPath + '/stylesheets'
+    .pipe gulp.dest securePath + '/stylesheets'
 
 # ================================
 ## copy fonts
@@ -84,7 +89,7 @@ nonDirTasks   = ['copy-css', 'copy-fonts']
 gulp.task 'watch-changes', () ->
   gulp.watch ['./**/*.html', './**/*.coffee'], copyDirTasks
   # gulp.src(['./**/*.html', './**/*.coffee']).pipe gp.watch { emit: 'one', name: 'copy-dirs' }, ['copy-dirs']
-  gulp.src('./stylesheets/ee.less').pipe gp.watch { emit: 'one', name: 'copy-css' }, ['copy-css']
+  gulp.src('./stylesheets/*.*').pipe gp.watch { emit: 'one', name: 'copy-css' }, ['copy-css']
   gulp.src('./img/*.*').pipe gp.watch { emit: 'one', name: 'copy-img' }, ['copy-img']
 
 gulp.task 'copy', () ->
