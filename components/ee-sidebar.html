@@ -1,0 +1,92 @@
+<div class="left-sidebar">
+  <!-- collection -->
+  <span ng-if="state == 'collection'">
+    <h2>Collection</h2>
+    <div class="vert-25 margin-top-0">
+      <img ng-src="{{ ee.Collection.collection.banner | cloudinaryResizeTo:220:125 }}" class="full-width"/>
+    </div>
+  </span>
+
+  <!-- /collection -->
+
+  <!-- categories -->
+  <h2>Category</h2>
+  <div class="panel-group category-products" id="accordian">
+    <div ng-repeat="category in ee.Products.categories" class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a ui-sref="category({ id: category.id, title: (category.title | urlText) })"
+            ng-bind="category.title">
+            <!-- <span class="badge pull-right"><i class="fa fa-plus"></i></span> -->
+          </a>
+        </h4>
+      </div>
+    </div>
+    <!-- <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+            Home Accents
+          </a>
+        </h4>
+      </div>
+      <div id="sportswear" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul>
+            <li><a href="#">Nike </a></li>
+            <li><a href="#">Under Armour </a></li>
+            <li><a href="#">Adidas </a></li>
+            <li><a href="#">Puma</a></li>
+            <li><a href="#">ASICS </a></li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title"><a ui-sref="sale({ id: 13016 })">Sale</a></h4>
+      </div>
+    </div>
+    <!-- <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title"><a href="#">New Arrivals</a></h4>
+      </div>
+    </div> -->
+  </div>
+  <!--/ categories -->
+
+  <!-- brands -->
+  <!-- <div class="brands_products">
+    <h2>Brands</h2>
+    <div class="brands-name">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
+        <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
+        <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
+        <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
+        <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
+        <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
+        <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+      </ul>
+    </div>
+  </div> -->
+  <!--/ brands -->
+
+  <!--price-range-->
+  <div class="price-range">
+    <h2>Price Range</h2>
+    <rzslider rz-slider-model="ee.Products.searchInputs.minValue"
+      rz-slider-high="ee.Products.searchInputs.maxValue"
+      rz-slider-options="ee.Products.searchInputs.options">
+    </rzslider>
+  </div>
+  <!--/price-range-->
+
+  <!--shipping-->
+  <div class="shipping text-center">
+    <img src="../ee-shared/img/shipping.jpg" alt="" />
+  </div>
+  <!--/shipping-->
+
+</div>

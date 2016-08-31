@@ -17,7 +17,7 @@
 
       <div ng-if="collection.data.products.length > 0" class="text-center">
         <div class="margin-10">
-          <uib-pagination ng-if="collection.data.count > collection.data.perPage"
+          <div uib-pagination ng-if="collection.data.count > collection.data.perPage"
             total-items="collection.data.count"
             items-per-page="collection.data.perPage"
             ng-model="collection.data.page"
@@ -27,18 +27,18 @@
             boundary-links="true"
             rotate="false"
             ng-change="collection.update()">
-          </uib-pagination>
+          </div>
         </div>
 
         <div class="full-width text-center vert-20 overflow-hidden">
           <div ng-repeat="product in collection.data.products" class="text-left inline-block vertical-align-top">
-            <ee-product-for-store product="product"></ee-product-for-store>
+            <ee-product-single product="product"></ee-product-single>
             <br>
           </div>
         </div>
 
         <div class="pad-20 vert-20">
-          <uib-pagination ng-if="collection.data.count > collection.data.perPage"
+          <div uib-pagination ng-if="collection.data.count > collection.data.perPage"
             total-items="collection.data.count"
             items-per-page="collection.data.perPage"
             ng-model="collection.data.page"
@@ -48,7 +48,7 @@
             boundary-links="true"
             rotate="false"
             ng-change="collection.update()">
-          </uib-pagination>
+          </div>
         </div>
       </div>
 

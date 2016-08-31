@@ -20,7 +20,12 @@
         <div class="col-sm-6">
           <div class="contactinfo">
             <ul class="nav nav-pills">
-              <li><a href><i class="fa fa-truck"></i>&nbsp;&nbsp;Free Shipping over $49</a></li>
+              <li class="free-shipping">
+                <a href uib-tooltip="Orders over $49 automatically receive free shipping."
+                  tooltip-placement="bottom">
+                  <i class="fa fa-truck"></i>&nbsp;&nbsp;Free Shipping over $49
+                </a>
+              </li>
               <li>&nbsp;&nbsp;</li>
               <li><a ui-sref="help"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Help</a></li>
             </ul>
@@ -54,7 +59,9 @@
           <div class="shop-menu pull-right">
             <ul class="nav navbar-nav">
               <div class="search_box pull-left" style="margin-right:20px">
-                <input type="text" placeholder="Search"/>
+                <form ng-submit="addToQuery()" class="margin-0">
+                  <input type="text" placeholder="Search" ng-model="boxValue" />
+                </form>
               </div>
               <!-- <li><a href="#"><i class="fa fa-user"></i> Account</a></li> -->
               <li><a href ng-click="modalOrFavorites()"><i class="fa fa-heart"></i> Favorites</a></li>

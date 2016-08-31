@@ -18,4 +18,9 @@ angular.module('ee-product-single').directive "eeProductSingle", ($rootScope, $s
       $state.go 'product', { id: scope.product.id, title: title, c: scope.product.category_id }, { notify: $state.current.name isnt 'product' }
       if $state.current.name is 'product' then $rootScope.scrollTo 'body-top'
 
+    scope.addToCart = (sku) ->
+      scope.adding = true
+      scope.addingText = 'Adding'
+      $rootScope.$emit 'cart:add:sku', sku
+
     return

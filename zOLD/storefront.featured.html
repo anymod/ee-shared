@@ -1,7 +1,7 @@
 <div ng-if="storefront.ee.Products.products.length > 0" ng-hide="storefront.ee.Products.reading" class="container vert-20 margin-top-0 text-center">
 
   <div ng-if="storefront.ee.Products.count > storefront.ee.Products.perPage" class="margin-10">
-    <uib-pagination
+    <div uib-pagination
       total-items="storefront.ee.Products.count"
       items-per-page="storefront.ee.Products.perPage"
       ng-model="storefront.ee.Products.page"
@@ -11,18 +11,18 @@
       boundary-links="true"
       rotate="false"
       ng-change="storefront.productsUpdate()">
-    </uib-pagination>
+    </div>
   </div>
 
   <div class="full-width text-center vert-20 overflow-hidden">
     <div ng-repeat="product in storefront.ee.Products.products" class="text-left inline-block vertical-align-top">
-      <ee-product-for-store product="product"></ee-product-for-store>
+      <ee-product-single product="product"></ee-product-single>
       <br>
     </div>
   </div>
 
   <div class="pad-20 vert-20">
-    <uib-pagination ng-if="storefront.ee.Products.count > storefront.ee.Products.perPage"
+    <div uib-pagination ng-if="storefront.ee.Products.count > storefront.ee.Products.perPage"
       total-items="storefront.ee.Products.count"
       items-per-page="storefront.ee.Products.perPage"
       ng-model="storefront.ee.Products.page"
@@ -32,7 +32,7 @@
       boundary-links="true"
       rotate="false"
       ng-change="storefront.productsUpdate()">
-    </uib-pagination>
+    </div>
   </div>
 </div>
 

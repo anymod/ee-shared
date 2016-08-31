@@ -397,17 +397,20 @@ ul.sub-menu {
 }
 
 .video-gallery a img {
-  height: 100%;
   width: 100%;
 }
 
 .iframe-img {
   position: relative;
-  display: block;
   height: 61px;
   margin-bottom: 10px;
   border: 2px solid #CCCCC6;
   border-radius: 3px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background: white;
+  padding: 5px;
 }
 
 .overlay-icon {
@@ -517,7 +520,7 @@ ul.sub-menu {
 
 .searchform input {
   border: 1px solid #DDDDDD;
-  color: #CCCCC6;
+  /*color: #CCCCC6;*/
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   margin-top: 0;
@@ -997,7 +1000,8 @@ h2.title {
 	margin-right:5px;
 }
 
-.choose ul li a:hover{
+.choose ul li a:hover,
+.choose ul li a.favorited {
 	background:none;
 	color:#B6405F;
 }
@@ -1116,7 +1120,7 @@ h2.title {
   padding: 6px 12px;
   position: relative;
   text-decoration: none;
-  margin-right: 5px;
+  /*margin-right: 5px;*/
   color:#000;
 }
 

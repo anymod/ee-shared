@@ -2,7 +2,7 @@
 
 module = angular.module 'ee-storefront-header', []
 
-module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites, eeCart, eeCoupon, eeModal, categories) ->
+module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites, eeCart, eeCoupon, eeModal, eeProducts, categories) ->
   templateUrl: 'ee-shared/components/ee-storefront-header-eshopper.html'
   scope:
     user:           '='
@@ -19,6 +19,7 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites
     scope.id     = if scope.state is 'category' then parseInt($state.params.id) else null
     scope.cart   = eeCart.cart
     scope.couponData = eeCoupon.data
+    scope.boxValue = eeProducts.data?.params?.q || ''
 
     return unless scope.user
 
@@ -36,12 +37,16 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites
       for category in categories
         if scope.user.categorization_ids?.indexOf(category.id) > -1 then scope.categories.push category
 
-    scope.search = (query, page) ->
-      $state.go 'search', { q: (query || scope.query), p: (page || scope.page) }
+    # scope.search = (query, page) ->
+    #   $state.go 'search', { q: (query || scope.query), p: (page || scope.page) }
+
+    scope.addToQuery = () ->
+      eeProducts.fns.setParam 'q', scope.boxValue
+      eeProducts.fns.setParam 'p', 1, { goTo: 'search' }
 
     scope.openSearchModal = () -> eeModal.fns.open 'search'
 
-    $rootScope.$on 'search:query', (e, data) -> scope.search data.q, 1
+    # $rootScope.$on 'search:query', (e, data) -> scope.search data.q, 1
 
     assignCategories()
 
