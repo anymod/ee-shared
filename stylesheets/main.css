@@ -1029,12 +1029,28 @@ h2.title {
   text-transform: uppercase;
 }
 
-.category-tab ul  li  a:hover{
+.category-tab ul li  a:hover{
 	background:#B6405F;
 	color:#fff;
 }
 
-.nav-tabs  li.active  a, .nav-tabs  li.active  a:hover, .nav-tabs  li.active  a:focus {
+.category-tab .nav-tabs li > a { margin-right: 0; }
+.category-tab .nav-tabs > li.active a,
+.category-tab .nav-tabs > li.active a:hover,
+.category-tab .nav-tabs > li.active a:focus {
+    background-color: #B6405F !important;
+    border: 0px !important;
+    color: #FFFFFF !important;
+    cursor: default !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+
+.nav-tabs li.active a,
+.nav-tabs li.active a:hover,
+.nav-tabs li.active a:focus {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
@@ -1047,7 +1063,7 @@ h2.title {
   margin-left:0;
 }
 
-.nav-tabs  li  a {
+.nav-tabs li a {
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 4px 4px 0 0;
   line-height: 1.42857;

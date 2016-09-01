@@ -8,6 +8,7 @@ angular.module('ee-product-single').directive "eeProductSingle", ($rootScope, $s
   scope:
     product: '='
     skuLink: '@'
+    hideExtra: '@'
   link: (scope, ele, attr) ->
     if $state.current.name is 'sale' then scope.hideSale = true
 
