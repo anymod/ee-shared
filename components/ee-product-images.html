@@ -9,11 +9,6 @@
       style="max-height: 450px; width: auto;"
       name="mainImage"
       data-zoom="{{ mainImage }}">
-    <div ng-hide="hideFavoriteButton"
-      class="position-absolute"
-      style="bottom: 0; right: 0; padding: 15px 0 0 15px;">
-      <ee-favorites-heart ng-if="product.skus" product-skus="product.skus"></ee-favorites-heart>
-    </div>
   </div>
   <!-- images -->
   <div ng-show="product.additional_images.length > 0" class="vert-5">

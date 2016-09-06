@@ -1,4 +1,5 @@
 <div class="left-sidebar">
+
   <!-- collection -->
   <span ng-if="state == 'collection'">
     <h2>Collection</h2>
@@ -6,7 +7,6 @@
       <img ng-src="{{ ee.Collection.collection.banner | cloudinaryResizeTo:220:125 }}" class="full-width"/>
     </div>
   </span>
-
   <!-- /collection -->
 
   <!-- categories -->
@@ -16,6 +16,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a ui-sref="category({ id: category.id, title: (category.title | urlText) })"
+            ng-class="{ active: category.id == stateParams.c }"
             ng-bind="category.title">
             <!-- <span class="badge pull-right"><i class="fa fa-plus"></i></span> -->
           </a>
@@ -84,8 +85,11 @@
   <!--/price-range-->
 
   <!--shipping-->
-  <div class="shipping text-center">
+  <!-- <div class="shipping text-center">
     <img src="../ee-shared/img/shipping.jpg" alt="" />
+  </div> -->
+  <div class="shipping text-center white-background pad-10">
+    <h3 class="font-weight-200">Free shipping on orders over $49</h3>
   </div>
   <!--/shipping-->
 

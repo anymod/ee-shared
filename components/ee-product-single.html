@@ -1,13 +1,14 @@
 <div class="product-image-wrapper">
   <div class="single-products">
     <div class="productinfo text-center">
-      <img ee-image-fadein
-        ee-src="product.image"
-        ee-w=220 ee-h=220 ee-trim=true
-        load-boolean="hideButtons"
-        ng-click="imageClick()"
-        alt="{{ product.title }}"
-        class="hover-pointer img-responsive full-width transition-400" />
+      <a ui-sref="product({ id: product.id, title: (product.title | urlText) })">
+        <img ee-image-fadein
+          ee-src="product.image"
+          ee-w=220 ee-h=220 ee-trim=true
+          load-boolean="hideButtons"
+          alt="{{ product.title }}"
+          class="hover-pointer img-responsive full-width transition-400" />
+      </a>
       <h2 ng-bind="product.prices | priceRange"></h2>
       <p ng-bind="product.title"
         style="width: 90%;
@@ -18,7 +19,7 @@
       </p>
       <div ng-click="addToCart(product.skus[0])"
         class="btn btn-default add-to-cart">
-        <i class="fa fa-shopping-cart"></i>Add to cart
+        <i class="fa fa-shopping-cart"></i>&nbsp;Add to cart
       </div>
     </div>
     <a ui-sref="sale({ id: product.discounted })"
@@ -30,7 +31,7 @@
     <ul class="nav nav-pills nav-justified">
       <!-- <li><a href="#"><i class="fa fa-heart"></i>Add to favorites</a></li> -->
       <li><ee-favorites-heart product-skus="product.skus"></ee-favorites-heart></li>
-      <li><a ui-sref="search({ q: product.title, c: product.category_id })"><i class="fa fa-search"></i>More like this</a></li>
+      <li><a ui-sref="search({ q: product.title, c: product.category_id })"><i class="fa fa-search"></i>&nbsp;More like this</a></li>
     </ul>
   </div>
 </div>
