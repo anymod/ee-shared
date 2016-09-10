@@ -14,6 +14,13 @@ angular.module 'app.core'
     { id: 5, title: 'Kitchen' }
     { id: 6, title: 'Outdoor' }
   ]
+  .constant 'sortOrders', [
+    { order: null,  title: 'Featured' }
+    { order: 'pa',  title: '$ - $$$', use: true } # price ASC (pa)
+    { order: 'pd',  title: '$$$ - $', use: true } # price DESC (pd)
+    { order: 'ta',  title: 'A to Z',  use: true } # title ASC (ta)
+    { order: 'td',  title: 'Z to A',  use: true } # title DESC (td)
+  ]
   .constant 'defaultMargins', [
     { min: 0,     max: 2499,      margin: 0.20 }
     { min: 2500,  max: 4999,      margin: 0.15 }

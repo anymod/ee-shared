@@ -2,7 +2,7 @@
 
 angular.module 'ee-sidebar', []
 
-angular.module('ee-sidebar').directive 'eeSidebar', ($state, $stateParams, eeDefiner) ->
+angular.module('ee-sidebar').directive 'eeSidebar', ($state, $stateParams, eeDefiner, eeProducts) ->
   templateUrl: 'ee-shared/components/ee-sidebar.html'
   restrict: 'EA'
   scope: {}
@@ -10,5 +10,6 @@ angular.module('ee-sidebar').directive 'eeSidebar', ($state, $stateParams, eeDef
     scope.ee = eeDefiner.exports
     scope.state = $state.current.name
     scope.stateParams = $stateParams
-    console.log scope.stateParams
+    scope.setCategory = (id) ->
+      eeProducts.fns.setParam 'c', id, { goTo: 'search' }
     return

@@ -1,0 +1,32 @@
+<div class="full-width pad-10" style="background: #F0F0E9;">
+  <span ng-show="data.reading">Searching&nbsp;</span>
+  <span ng-hide="data.reading">
+    <span ng-if="getCount() >= getEnd()">
+      <span ng-bind="getStart()"></span>&nbsp;-&nbsp;<span ng-bind="getEnd()"></span>&nbsp;of
+    </span>
+    <span ng-bind="getCount()"></span>&nbsp;results
+    <span ng-if="getCategoryTitle().length > 0 || stateParams.q.length > 0">&nbsp;for&nbsp;</span>
+  </span>
+  <strong ng-if="getCategoryTitle().length > 0" ng-bind="getCategoryTitle()"></strong>
+  <span ng-if="getCategoryTitle().length > 0 && stateParams.q.length > 0">&nbsp;:&nbsp;</span>
+  <span ng-if="getCategoryTitle().length > 0 && !stateParams.q.length > 0" ng-click="clearCategory()" class="fa fa-fw fa-times-circle-o hover-pointer"></span>
+  <strong ng-if="stateParams.q.length > 0" ng-bind="stateParams.q"></strong>&nbsp;
+  <span ng-if="stateParams.q.length > 0" ng-click="clearSearch()" class="fa fa-fw fa-times-circle-o hover-pointer"></span>
+
+  <!-- sort order -->
+  <span class="pull-right">
+    Sort by
+    <span class="dropdown" uib-dropdown>
+      <div class="btn btn-xs btn-default" uib-dropdown-toggle>
+        <span ng-bind="getOrderTitle()"></span>&nbsp;<i class="fa fa-caret-down"></i>
+      </div>
+      <ul class="dropdown-menu" uib-dropdown-menu>
+        <li ng-repeat="order in data.sortOrders">
+          <a href ng-bind="order.title" ng-click="setOrder(order.order)"></a>
+        </li>
+      </ul>
+    </span>
+  </span>
+  <!-- /sort order -->
+
+</div>
