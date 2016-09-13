@@ -1,32 +1,44 @@
-<div class="full-width pad-10" style="background: #F0F0E9;">
-  <span ng-show="data.reading">Searching&nbsp;</span>
-  <span ng-hide="data.reading">
-    <span ng-if="getCount() >= getEnd()">
-      <span ng-bind="getStart()"></span>&nbsp;-&nbsp;<span ng-bind="getEnd()"></span>&nbsp;of
-    </span>
-    <span ng-bind="getCount()"></span>&nbsp;results
-    <span ng-if="getCategoryTitle().length > 0 || stateParams.q.length > 0">&nbsp;for&nbsp;</span>
-  </span>
-  <strong ng-if="getCategoryTitle().length > 0" ng-bind="getCategoryTitle()"></strong>
-  <span ng-if="getCategoryTitle().length > 0 && stateParams.q.length > 0">&nbsp;:&nbsp;</span>
-  <span ng-if="getCategoryTitle().length > 0 && !stateParams.q.length > 0" ng-click="clearCategory()" class="fa fa-fw fa-times-circle-o hover-pointer"></span>
-  <strong ng-if="stateParams.q.length > 0" ng-bind="stateParams.q"></strong>&nbsp;
-  <span ng-if="stateParams.q.length > 0" ng-click="clearSearch()" class="fa fa-fw fa-times-circle-o hover-pointer"></span>
+<div>
+  <div class="full-width pad-10" style="background: #F0F0E9;">
+    <div class="row">
+      <div class="col-xs-9">
+        <span ng-show="data.reading">Searching</span>
+        <span ng-hide="data.reading">
+          <span ng-if="data.count > 0 && data.count >= getEnd()">
+            <span ng-bind="getStart()"></span>&nbsp;-&nbsp;<span ng-bind="getEnd()"></span>&nbsp;of
+          </span>
+          <span ng-bind="data.count"></span>&nbsp;results
+          <span ng-if="getCategoryTitle().length > 0 || stateParams.q.length > 0">for</span>
+        </span>
+        <strong ng-if="getCategoryTitle().length > 0" ng-bind="getCategoryTitle()"></strong>
+        <span ng-if="getCategoryTitle().length > 0 && stateParams.q.length > 0">:</span>
+        <span ng-if="getCategoryTitle().length > 0 && !stateParams.q.length > 0" ng-click="clearCategory()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <strong ng-if="stateParams.q.length > 0" ng-bind="stateParams.q"></strong>
+        <span ng-if="stateParams.q.length > 0" ng-click="clearSearch()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
 
-  <!-- sort order -->
-  <span class="pull-right">
-    Sort by
-    <span class="dropdown" uib-dropdown>
-      <div class="btn btn-xs btn-default" uib-dropdown-toggle>
-        <span ng-bind="getOrderTitle()"></span>&nbsp;<i class="fa fa-caret-down"></i>
       </div>
-      <ul class="dropdown-menu" uib-dropdown-menu>
-        <li ng-repeat="order in data.sortOrders">
-          <a href ng-bind="order.title" ng-click="setOrder(order.order)"></a>
-        </li>
-      </ul>
-    </span>
-  </span>
-  <!-- /sort order -->
 
+      <!-- sort order -->
+      <div class="col-xs-3 text-right">
+        Sort by
+        <span class="dropdown" uib-dropdown>
+          <div class="btn btn-xs btn-default" uib-dropdown-toggle>
+            <span ng-bind="getOrderTitle()"></span>&nbsp;<i class="fa fa-caret-down"></i>
+          </div>
+          <ul class="dropdown-menu dropdown-menu-right" style="min-width: 90px;" uib-dropdown-menu>
+            <li ng-repeat="order in data.sortOrders">
+              <a href ng-bind="order.title" ng-click="setOrder(order.order)"></a>
+            </li>
+          </ul>
+        </span>
+      </div>
+      <!-- /sort order -->
+    </div>
+  </div>
+
+  <div class="pad-5" ng-if="getRange()">
+    <span class="badge">
+      <span ng-bind="getRange()"></span> <i class="fa fa-fw fa-times hover-pointer" ng-click="clearRange()"></i>
+    </span>
+  </div>
 </div>

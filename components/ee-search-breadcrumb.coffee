@@ -10,16 +10,20 @@ module.directive "eeSearchBreadcrumb", ($stateParams, categories, sortOrders, ee
     scope.stateParams = $stateParams
     scope.data = eeProducts.data
 
-    scope.setOrder = (order) ->
-      eeProducts.fns.setParam 's', order, { goTo: 'search' }
-
     scope.getStart = () ->
       1 + (parseInt(eeProducts.data.page) - 1) * parseInt(eeProducts.data.perPage)
 
     scope.getEnd = () ->
       Math.min(parseInt(eeProducts.data.page) * parseInt(eeProducts.data.perPage), parseInt(eeProducts.data.count))
 
-    scope.getCount = () -> eeProducts.data.count
+    scope.getRange = () ->
+      switch eeProducts.data.params.r
+        when null, '', '0-0', '0-300' then return null
+        else
+          [min, max] = eeProducts.data.params.r.split('-')
+          if parseInt(max) >= 300 and parseInt(min) > 0 then return 'Over $' + min
+          if parseInt(min) <= 0 and parseInt(max) < 300 then return 'Under $' + max
+          '$' + min + ' - $' + max
 
     scope.getCategoryTitle = () ->
       for category in categories
@@ -31,7 +35,9 @@ module.directive "eeSearchBreadcrumb", ($stateParams, categories, sortOrders, ee
         if order.order is eeProducts.data.params.s then return order.title
       return 'Featured'
 
-    scope.clearSearch = () -> eeProducts.fns.setParam 'q', null, { goTo: 'search' }
-    scope.clearCategory = () -> eeProducts.fns.setParam 'c', null, { goTo: 'search' }
+    scope.setOrder = (order) -> eeProducts.fns.setParams { s: order, p: 1 }, { goTo: 'search' }
+    scope.clearSearch = () -> eeProducts.fns.setParams { q: null, p: 1 }, { goTo: 'search' }
+    scope.clearCategory = () -> eeProducts.fns.setParams { c: null, p: 1 }, { goTo: 'search' }
+    scope.clearRange = () -> eeProducts.fns.setParams { r: null, p: 1 }, { goTo: 'search' }
 
     return

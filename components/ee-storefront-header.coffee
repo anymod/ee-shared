@@ -19,7 +19,7 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, eeFavorites
     scope.id     = if scope.state is 'category' then parseInt($state.params.id) else null
     scope.cart   = eeCart.cart
     scope.couponData = eeCoupon.data
-    scope.boxValue = eeProducts.data?.params?.q || ''
+    scope.boxValue = '' # eeProducts.data?.params?.q || 
 
     return unless scope.user
 
