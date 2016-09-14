@@ -93,7 +93,7 @@
                 <a ui-sref="storefront" ui-sref-active="active">Home</a>
               </li>
               <li ng-repeat="category in categories">
-                <a ui-sref="category({ id: category.id })" ui-sref-active="active" ng-bind="category.title"></a>
+                <a ui-sref="category({ id: category.id, title: (category.title | urlText) })" ui-sref-active="active" ng-bind="category.title"></a>
               </li>
               <!-- <li class="dropdown">
                 <a ui-sref="category({ id: 4 })">Home Accents<i class="fa fa-angle-down"></i></a>

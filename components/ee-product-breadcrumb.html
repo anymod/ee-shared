@@ -1,0 +1,19 @@
+<div>
+  <div class="full-width pad-10" style="background: #F0F0E9;">
+    <div class="row">
+      <div class="col-xs-9">
+        <span ng-if="getCategoryTitle()">
+          <span ng-bind="getCategoryTitle()" class="hover-pointer hover-underline" ui-sref="category({ id: product.category_id })"></span>&nbsp;<i class="fa fa-fw fa-angle-right"></i>&nbsp;<span ng-bind="product.title"></span>
+        </span>
+      </div>
+
+      <!-- sort order -->
+      <div class="col-xs-3 text-right">
+        <a ui-sref="search({ q: product.title })" class="btn btn-xs btn-default">
+          More like this <i class="fa fa-fw fa-search"></i>
+        </a>
+      </div>
+      <!-- /sort order -->
+    </div>
+  </div>
+</div>
