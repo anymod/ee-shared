@@ -17,7 +17,7 @@
       class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a href ng-click="setCategory(category.id)" ng-class="{ active: category.id == stateParams.c }">
+          <a href ng-click="setCategoryAndSubtag(category.id)" ng-class="{ active: category.id == stateParams.c }">
             <span ng-bind="category.title"></span>
             <span ng-show="category.subtags.length > 1"
               ng-click="openTag = !openTag"
