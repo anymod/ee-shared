@@ -639,6 +639,7 @@ html { overflow-x: hidden; }
 .text-shadow-dark-4 { text-shadow: 0 4px 8px rgba(0,0,0,.5); }
 .font-weight-100 { font-weight: 100 !important; }
 .font-weight-200 { font-weight: 200 !important; }
+.font-weight-bold { font-weight: bold !important; }
 .overflow-hidden { overflow: hidden !important; }
 .vertical-align-top { vertical-align: top; }
 .vertical-align-middle { vertical-align: middle; }
@@ -1337,5 +1338,41 @@ img.logo {
 .nav-side.open { left: 0; }
 
 // eshopper
+.product-image-wrapper {
+  transition: all 0.2s ease-in-out;
+  &:hover, &:focus {
+    .material-box-shadow(0px,6px,0.16,3px,6px,0.23);
+  }
+}
 .product-overlay { display: none !important; }
 .productinfo img { padding: 20px; }
+
+// corner ribbon
+.corner-ribbon {
+  width: 80px;
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  left: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  padding: 30px 0 0;
+}
+.corner-ribbon.shadow { box-shadow: 0 0 3px rgba(0,0,0,.3); }
+.corner-ribbon.top-left {
+  top: -20px;
+  left: -35px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.corner-ribbon.top-right {
+  top: -20px;
+  right: -35px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

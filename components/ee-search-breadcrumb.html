@@ -10,11 +10,20 @@
           <span ng-bind="data.count"></span>&nbsp;results
           <span ng-if="getCategoryTitle().length > 0 || stateParams.q.length > 0">for</span>
         </span>
+        <!-- category title -->
         <strong ng-if="getCategoryTitle().length > 0" ng-bind="getCategoryTitle()"></strong>
+        <span ng-if="getCategoryTitle().length > 0 && !stateParams.t.length > 0 && !stateParams.q.length > 0" ng-click="clearCategory()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <!-- /category title -->
+        <!-- subtag -->
+        <span ng-if="getCategoryTitle().length > 0 && stateParams.t.length > 0">:</span>
+        <strong ng-if="stateParams.t.length > 0" ng-bind="stateParams.t"></strong>
+        <span ng-if="getCategoryTitle().length > 0 && stateParams.t.length > 0 && !stateParams.q.length > 0" ng-click="clearTags()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <!-- /subtag -->
+        <!-- query -->
         <span ng-if="getCategoryTitle().length > 0 && stateParams.q.length > 0">:</span>
-        <span ng-if="getCategoryTitle().length > 0 && !stateParams.q.length > 0" ng-click="clearCategory()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
         <strong ng-if="stateParams.q.length > 0" ng-bind="stateParams.q"></strong>
         <span ng-if="stateParams.q.length > 0" ng-click="clearSearch()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <!-- /query -->
 
       </div>
 

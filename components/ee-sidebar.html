@@ -1,10 +1,20 @@
 <div class="left-sidebar">
 
   <!-- collection -->
-  <span ng-if="state == 'collection'">
+  <span ng-if="stateParams.coll > 0 && ee.Collection.collection.banner">
     <h2>Collection</h2>
-    <div class="vert-25 margin-top-0">
-      <img ng-src="{{ ee.Collection.collection.banner | cloudinaryResizeTo:220:125 }}" class="full-width"/>
+    <div class="vert-50 margin-top-0">
+      <div class="position-relative">
+        <img ng-src="{{ ee.Collection.collection.banner | cloudinaryResizeTo:228:96 }}" class="full-width"/>
+        <div ng-click="clearCollection()"
+          class="position-absolute hover-pointer"
+          style="top: 0; right: 0;">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x fa-inverse opacity-08"></i>
+            <i class="fa fa-times fa-stack-1x"></i>
+          </span>
+        </div>
+      </div>
     </div>
   </span>
   <!-- /collection -->
@@ -31,7 +41,10 @@
         <div class="panel-body">
           <ul>
             <li ng-repeat="subtag in category.subtags">
-              <a href ng-click="setCategoryAndSubtag(category.id, subtag)" ng-bind="subtag"></a>
+              <a href ng-click="setCategoryAndSubtag(category.id, subtag)"
+                ng-bind="subtag"
+                ng-class="{ 'text-primary-background font-weight-bold': subtag == stateParams.t }">
+              </a>
             </li>
           </ul>
         </div>

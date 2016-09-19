@@ -12,6 +12,11 @@ angular.module('ee-product-single').directive "eeProductSingle", ($rootScope, $s
   link: (scope, ele, attr) ->
     if $state.current.name is 'sale' then scope.hideSale = true
 
+    if scope.product?.skus?.length > 0
+      scope.freeShipping = true
+      for sku in scope.product?.skus
+        if sku.shipping_price > 0 then scope.freeShipping = false
+
     # scope.imageClick = () ->
     #   return $state.go('storefront') unless scope.product?.id?
     #   title = $filter('urlText')(scope.product.title )

@@ -13,8 +13,10 @@
 </div>
 <!-- /Coupon Header -->
 
-<header id="header"><!--header-->
-  <div class="header_top"><!--header_top-->
+<!--header-->
+<header id="header">
+  <!--header_top-->
+  <div class="header_top">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
@@ -31,7 +33,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 hidden-xs">
           <div class="social-icons pull-right">
             <ul class="nav navbar-nav">
               <li ng-repeat="site in ['facebook','pinterest','twitter','instagram']"
@@ -45,9 +47,11 @@
         </div>
       </div>
     </div>
-  </div><!--/header_top-->
+  </div>
+  <!--/header_top-->
 
-  <div class="header-middle"><!--header-middle-->
+  <!--header-middle-->
+  <div class="header-middle">
     <div class="container">
       <div class="row">
         <div class="col-sm-4">
@@ -73,9 +77,11 @@
         </div>
       </div>
     </div>
-  </div><!--/header-middle-->
+  </div>
+  <!--/header-middle-->
 
-  <div class="header-bottom" ng-hide="state != 'storefront'"><!--header-bottom-->
+  <!--header-bottom-->
+  <div class="header-bottom hidden-xs" ng-hide="state != 'storefront'">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
@@ -110,5 +116,8 @@
         </div>
       </div>
     </div>
-  </div><!--/header-bottom-->
-</header><!--/header-->
+  </div>
+  <!--/header-bottom-->
+
+</header>
+<!--/header-->

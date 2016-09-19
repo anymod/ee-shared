@@ -17,8 +17,9 @@ module.directive "eeSearchBreadcrumb", ($stateParams, categories, sortOrders, ee
       Math.min(parseInt(eeProducts.data.page) * parseInt(eeProducts.data.perPage), parseInt(eeProducts.data.count))
 
     scope.getRange = () ->
+      return unless eeProducts.data.params?.r
       switch eeProducts.data.params.r
-        when null, '', '0-0', '0-300' then return null
+        when '', '0-0', '0-300' then return null
         else
           [min, max] = eeProducts.data.params.r.split('-')
           if parseInt(max) >= 300 and parseInt(min) > 0 then return 'Over $' + min
@@ -38,6 +39,7 @@ module.directive "eeSearchBreadcrumb", ($stateParams, categories, sortOrders, ee
     scope.setOrder = (order) -> eeProducts.fns.setParams { s: order, p: 1 }, { goTo: 'search' }
     scope.clearSearch = () -> eeProducts.fns.setParams { q: null, p: 1 }, { goTo: 'search' }
     scope.clearCategory = () -> eeProducts.fns.setParams { c: null, p: 1 }, { goTo: 'search' }
+    scope.clearTags = () -> eeProducts.fns.setParams { t: null, p: 1 }, { goTo: 'search' }
     scope.clearRange = () -> eeProducts.fns.setParams { r: null, p: 1 }, { goTo: 'search' }
 
     return

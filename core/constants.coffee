@@ -26,11 +26,11 @@ subtags =
     'Artwork'
   ],
   bedBath: [
-    'Quilts'
+    'Comforters'
 		'Bedding ensembles'
+    'Quilts'
 		# 'Sheets & pillowcases'
 		'Blankets & throws'
-		'Comforters'
 		'Decorative pillows, inserts & covers'
 		# 'Bedspreads & coverlets'
 		# 'Down/Down Alternative'
@@ -51,9 +51,9 @@ subtags =
     # 'Glassware'
   ],
   outdoor: [
-    'Patio furniture sets'
     'Chairs'
     'Tables'
+    'Patio furniture sets'
     'Plants & planting'
     'Firepits'
     'Birdhouses & accessories'
