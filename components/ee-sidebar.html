@@ -22,22 +22,22 @@
   <!-- categories -->
   <h2>Category</h2>
   <div class="panel-group category-products" id="accordian">
-    <div ng-repeat="category in ee.Products.categories"
-      ng-init="openTag = (category.id == stateParams.c)"
+    <div ng-repeat="tag1 in tag1s"
+      ng-init="openTag = (tag1 == stateParams.t1)"
       class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a href ng-click="setCategoryAndSubtag(category.id)" ng-class="{ active: category.id == stateParams.c }">
-            <span ng-bind="category.title"></span>
-            <span ng-show="category.subtags.length > 1"
+          <a href ng-click="setTags({ t1: tag1 })" ng-class="{ active: tag1 == stateParams.t1 }">
+            <span ng-bind="tag1"></span>
+            <!-- <span ng-show="category.subtags.length > 1"
               ng-click="openTag = !openTag"
               class="badge pull-right">
               <i class="fa" ng-class="openTag ? 'fa-minus' : 'fa-plus'"></i>
-            </span>
+            </span> -->
           </a>
         </h4>
       </div>
-      <div ng-show="category.subtags.length > 1" class="panel-collapse" ng-class="openTag ? '' : 'collapse'">
+      <!-- <div ng-show="category.subtags.length > 1" class="panel-collapse" ng-class="openTag ? '' : 'collapse'">
         <div class="panel-body">
           <ul>
             <li ng-repeat="subtag in category.subtags">
@@ -48,7 +48,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- <div class="panel panel-default">
       <div class="panel-heading">
