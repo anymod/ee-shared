@@ -20,69 +20,57 @@
   <!-- /collection -->
 
   <!-- categories -->
-  <h2>Category</h2>
+  <h2 ng-bind="currentTag1 || 'Category'"></h2>
   <div class="panel-group category-products" id="accordian">
-    <div ng-repeat="tag1 in tag1s"
-      ng-init="openTag = (tag1 == stateParams.t1)"
+    <div ng-repeat="(tag1, branch1) in tagTree"
+      ng-if="currentTag1 && currentTag1 == tag1 || !currentTag1"
       class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a href ng-click="setTags({ t1: tag1 })" ng-class="{ active: tag1 == stateParams.t1 }">
-            <span ng-bind="tag1"></span>
-            <!-- <span ng-show="category.subtags.length > 1"
-              ng-click="openTag = !openTag"
-              class="badge pull-right">
-              <i class="fa" ng-class="openTag ? 'fa-minus' : 'fa-plus'"></i>
-            </span> -->
-          </a>
-        </h4>
-      </div>
-      <!-- <div ng-show="category.subtags.length > 1" class="panel-collapse" ng-class="openTag ? '' : 'collapse'">
+
+      <!-- No currentTag1 -->
+      <div ng-if="!currentTag1">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a href ng-click="setTags({ t1: tag1 })" ng-bind="tag1"></a>
+          </h4>
+        </div>
         <div class="panel-body">
           <ul>
-            <li ng-repeat="subtag in category.subtags">
-              <a href ng-click="setCategoryAndSubtag(category.id, subtag)"
-                ng-bind="subtag"
-                ng-class="{ 'text-primary-background font-weight-bold': subtag == stateParams.t }">
+            <li ng-repeat="(tag2, branch2) in branch1">
+              <a href ng-click="setTags({ t1: tag1, t2: tag2 })" ng-bind="tag2"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /No currentTag1 -->
+
+      <!-- Has currentTag1 -->
+      <div ng-if="currentTag1" ng-repeat="(tag2, branch2) in branch1">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a href ng-click="setTags({ t1: tag1, t2: tag2 })"
+              ng-class="{ active: currentTag2 && currentTag2 == tag2 }">
+              <span ng-bind="tag2"></span>
+              <!-- <span class="badge pull-right">
+                <i class="fa" ng-class="openTag ? 'fa-minus' : 'fa-plus'"></i>
+              </span> -->
+            </a>
+          </h4>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li ng-repeat="tag3 in branch2">
+              <a href ng-click="setTags({ t1: tag1, t2: tag2, t3: tag3 })"
+                ng-class="{ 'text-primary-background': currentTag3 && currentTag3 == tag3 }"
+                ng-bind="tag3">
               </a>
             </li>
           </ul>
         </div>
-      </div> -->
+      </div>
+      <!-- /Has currentTag1 -->
     </div>
-    <!-- <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-            Home Accents
-          </a>
-        </h4>
-      </div>
-      <div id="sportswear" class="panel-collapse collapse">
-        <div class="panel-body">
-          <ul>
-            <li><a href="#">Nike </a></li>
-            <li><a href="#">Under Armour </a></li>
-            <li><a href="#">Adidas </a></li>
-            <li><a href="#">Puma</a></li>
-            <li><a href="#">ASICS </a></li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title"><a ui-sref="sale({ id: 13016 })">Sale</a></h4>
-      </div>
-    </div>
-    <!-- <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title"><a href="#">New Arrivals</a></h4>
-      </div>
-    </div> -->
+    <!--/ categories -->
   </div>
-  <!--/ categories -->
 
   <!-- brands -->
   <!-- <div class="brands_products">

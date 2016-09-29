@@ -12,10 +12,10 @@ tagTree =
     ]
     'Wall Décor': [
       'Wall Art'
-      'Wall Decals'
-      'Tapestries'
+      # 'Wall Decals'
+      # 'Tapestries'
       'Clocks'
-      'Wallpaper'
+      # 'Wallpaper'
     ]
     # 'Window Treatments': [
     #   'Curtains & Drapes'
@@ -24,7 +24,7 @@ tagTree =
     # ]
     'Mirrors': [
       'Wall Mirrors'
-      'Floor Mirrors'
+      # 'Floor Mirrors'
     ]
     'Pillows & Throws': [
       'Decorative Pillow'
@@ -39,8 +39,8 @@ tagTree =
       'Chairs & Recliners'
       'Futons'
       'Coffee & End Tables'
-      'Slipcovers'
-      'Chaise Lounges'
+      # 'Slipcovers'
+      # 'Chaise Lounges'
     ]
     'Bedroom': [
       # 'Beds'
@@ -55,7 +55,7 @@ tagTree =
       'Bar Stools'
       'Dining Tables'
       'Dining Chairs'
-      'Dining Room Sets'
+      # 'Dining Room Sets'
       'Kitchen Islands'
       'Sideboards & Buffets'
     ]
@@ -64,7 +64,7 @@ tagTree =
       'Accent Chairs'
       'Cabinets & Chests'
       'Ottomans & Poufs'
-      'Room Dividers'
+      # 'Room Dividers'
     ]
     'Patio': [
       'Patio Dining Sets'
@@ -75,12 +75,12 @@ tagTree =
       'Desks'
       'Office Chairs'
       'Bookcases'
-      'Filing Cabinets'
+      # 'Filing Cabinets'
     ]
     'Entry & Mudroom': [
       'Coat Racks'
-      'Hall Trees'
-      'Plant Stands & Tables'
+      # 'Hall Trees'
+      # 'Plant Stands & Tables'
       'Storage Benches'
       'Console Tables'
     ]
@@ -95,17 +95,17 @@ tagTree =
     'Rugs': [
       'Area Rugs'
       'Mats'
-      'Outdoor Rugs'
-      'Kids Rugs'
-      'Hallway Runners'
+      # 'Outdoor Rugs'
+      # 'Kids Rugs'
+      # 'Hallway Runners'
       'Bath Rugs & Mats'
-      'Rug Pads'
+      # 'Rug Pads'
     ]
     'Rugs by Size': [
       '2x3'
-      '3x5'
+      # '3x5'
       '5x8'
-      '7x9'
+      # '7x9'
       '8x10'
       '9x12'
     ]
@@ -117,34 +117,34 @@ tagTree =
       'Quilts & Coverlets'
       'Blankets & Throws'
     ]
-    'Bedding Basics':[
-      'Mattresses'
-      'Mattress Pads & Toppers'
-      'Comforters & Duvet Fills'
-      'Pillows'
-    ]
-    'Bathroom Fixtures':[
-      'Bathroom Vanities'
-      'Bathroom Faucets'
-      'Shower Heads'
-    ]
+    # 'Bedding Basics':[
+    #   'Mattresses'
+    #   'Mattress Pads & Toppers'
+    #   'Comforters & Duvet Fills'
+    #   'Pillows'
+    # ]
+    # 'Bathroom Fixtures':[
+    #   'Bathroom Vanities'
+    #   'Bathroom Faucets'
+    #   'Shower Heads'
+    # ]
     'Bath Accessories':[
-      'Bath Accessory Sets'
-      'Bathroom Mirrors'
-      'Toilet Paper Holders'
+      # 'Bath Accessory Sets'
+      # 'Bathroom Mirrors'
+      # 'Toilet Paper Holders'
     ]
     'Bath Linens':[
-      'Shower Curtains'
+      # 'Shower Curtains'
       'Bath Towels'
       'Bath Rugs & Mats'
     ]
-    'Bath Storage': []
+    # 'Bath Storage': []
   'Lighting':
     'Ceiling Lights': [
       'Pendant Lighting'
       'Chandeliers'
-      'Flush Mounts'
-      'Track Lighting'
+      # 'Flush Mounts'
+      # 'Track Lighting'
     ]
     'Lamps': [
       'Table Lamps'
@@ -152,14 +152,14 @@ tagTree =
       'Desk Lamps'
     ]
     'Outdoor Lighting': [
-      'Outdoor Wall Lighting'
-      'Landscape Lighting'
-      'Solar Lighting'
+      # 'Outdoor Wall Lighting'
+      # 'Landscape Lighting'
+      # 'Solar Lighting'
     ]
-    'Bulbs & Shades': [
-      'Lamp Shades'
-      'Light Bulbs'
-    ]
+    # 'Bulbs & Shades': [
+    #   'Lamp Shades'
+    #   'Light Bulbs'
+    # ]
     # 'Wall Lights': [
     #   'Wall Sconces'
     #   'Vanity Lighting'
@@ -189,15 +189,15 @@ tagTree =
       'Table Linens'
     ]
     'Cutlery & Prep': [
-      'Knives'
+      # 'Knives'
       'Cutting Boards'
-      'Cooking Utensils'
-      'Mixing Bowls'
+      # 'Cooking Utensils'
+      # 'Mixing Bowls'
     ]
     'Bar & Wine': [
       'Wine Racks'
-      'Wine Refrigerators'
-      'Wine Glasses'
+      # 'Wine Refrigerators'
+      # 'Wine Glasses'
       'Barware'
     ]
     # 'Bakeware': [
@@ -209,47 +209,47 @@ tagTree =
     #   'Ranges'
     # ]
     'Storage & Organization': [
-      'Food Storage'
-      'Bakers Racks'
-      'Spice Racks'
-      'Kitchen Canisters'
+      # 'Food Storage'
+      # 'Bakers Racks'
+      # 'Spice Racks'
+      # 'Kitchen Canisters'
     ]
   'Storage':
-    'Bathroom Storage': [
-      'Shower Caddies'
-      'Over the Toilet Storage'
-      'Linen Storage'
-    ]
     'General Storage': [
       'Shelving'
       'Decorative Storage Baskets & Boxes'
     ]
-    'Kitchen Storage': [
-      'Cabinet Organization'
-      'Pantry Cabinets'
-    ]
-    'Bedroom Storage': [
-      'Under Bed Storage'
-      'Jewelry Boxes'
-    ]
-    'Garage Storage': [
-      'Storage Cabinets'
-      'Shelving Units'
-    ]
-    'Closet Storage': [
-      'Closet Organizers & Systems'
-      'Shoe Storage & Racks'
+    'Laundry Room Storage': [
+      'Hampers & Baskets'
     ]
     'Entry & Mudroom Storage': [
       'Storage Benches'
       'Coat Racks'
     ]
-    'Cleaning & Floor Care': [
-      'Vacuums & Steamers'
+    'Bathroom Storage': [
+      # 'Shower Caddies'
+      # 'Over the Toilet Storage'
+      # 'Linen Storage'
     ]
-    'Laundry Room Storage': [
-      'Hampers & Baskets'
+    # 'Kitchen Storage': [
+    #   'Cabinet Organization'
+    #   'Pantry Cabinets'
+    # ]
+    'Bedroom Storage': [
+      # 'Under Bed Storage'
+      # 'Jewelry Boxes'
     ]
+    # 'Garage Storage': [
+    #   'Storage Cabinets'
+    #   'Shelving Units'
+    # ]
+    # 'Closet Storage': [
+    #   'Closet Organizers & Systems'
+    #   'Shoe Storage & Racks'
+    # ]
+    # 'Cleaning & Floor Care': [
+    #   'Vacuums & Steamers'
+    # ]
   'Outdoor':
     'Patio Furniture': [
       'Conversation Sets'
@@ -257,19 +257,19 @@ tagTree =
       'Patio Chairs'
       'Patio Tables'
       'Hammocks'
-      'Adirondack Chairs'
+      # 'Adirondack Chairs'
     ]
     'Outdoor Décor': [
       'Garden Statues & Sculptures'
       'Outdoor Fountains'
-      'Outdoor Rugs'
-      'Outdoor Pillows & Cushions'
+      # 'Outdoor Rugs'
+      # 'Outdoor Pillows & Cushions'
       'Bird Baths, Houses & Feeders'
     ]
     'Outdoor Heating': [
-      'Patio Heaters'
+      # 'Patio Heaters'
       'Firepits'
-      'Outdoor Fireplaces'
+      # 'Outdoor Fireplaces'
     ]
     # 'Outdoor Storage': [
     #   'Storage Sheds'
@@ -281,8 +281,8 @@ tagTree =
     # ]
     'Lawn & Garden': [
       'Planters'
-      'Greenhouses'
-      'Composters'
+      # 'Greenhouses'
+      # 'Composters'
     ]
     # 'Outdoor Shade & Structures': [
     #   'Patio Umbrellas'

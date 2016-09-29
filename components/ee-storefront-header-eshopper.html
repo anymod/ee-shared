@@ -81,7 +81,7 @@
   <!--/header-middle-->
 
   <!--header-bottom-->
-  <div class="header-bottom hidden-xs" ng-hide="state != 'storefront'">
+  <div class="header-bottom hidden-xs" ng-hide="state == 'cart'">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
@@ -93,13 +93,42 @@
               <span class="icon-bar"></span>
             </button>
           </div>
-          <div class="mainmenu pull-left">
-            <ul class="nav navbar-nav collapse navbar-collapse">
-              <li>
-                <a ui-sref="storefront" ui-sref-active="active">Home</a>
+          <div class="mainmenu pull-left full-width">
+            <ul class="nav navbar-nav collapse navbar-collapse full-width">
+              <li ng-repeat="(tag1, branch1) in tagTree" class="dropdown">
+                <a href ng-click="setTags({ t1: tag1 })" ng-bind="tag1"></a>
+                <ul role="menu" class="sub-menu" style="padding-bottom: 16px;">
+                  <div ng-repeat="(tag2, branch2) in branch1">
+                    <div class="pull-left margin-7"
+                      style="padding: 0 0 0 16px;">
+                      <a href ng-click="setTags({ t1: tag1, t2: tag2 })" ng-bind="tag2"
+                        class="inline-block text-success"
+                        style="font-weight: 700; font-size: 16px; padding: 22px 0 5px 0 !important;">
+                      </a>
+                      <div ng-repeat="tag3 in branch2">
+                        <a href ng-click="setTags({ t1: tag1, t2: tag2, t3: tag3 })" ng-bind="tag3"
+                          class="inline-block"
+                          style="padding: 5px 0; font-size: 13px; font-weight: normal;">
+                        </a>
+                      </div>
+                    </div>
+                    <div ng-if="($index + 1) % 4 == 0" class="visible-sm clearfix"></div>
+                    <div ng-if="($index + 1) % 7 == 0" class="visible-md clearfix"></div>
+                  </div>
+                  <!-- <li ng-repeat="(tag2, branch2) in branch1">
+                    <a href ng-click="setTags({ t1: tag1, t2: tag2 })" ng-bind="tag2"></a>
+                    <ul>
+                      <li ng-repeat="tag3 in branch2">
+                        <a href ng-click="setTags({ t1: tag1, t2: tag2, t3: tag3 })"
+                          ng-bind="tag3">
+                        </a>
+                      </li>
+                    </ul>
+                  </li> -->
+                </ul>
               </li>
-              <li ng-repeat="category in categories">
-                <a ui-sref="category({ id: category.id, title: (category.title | urlText) })" ui-sref-active="active" ng-bind="category.title"></a>
+              <li class="pull-right">
+                <a ui-sref="sale({ id: 13016 })">Sale</a>
               </li>
               <!-- <li class="dropdown">
                 <a ui-sref="category({ id: 4 })">Home Accents<i class="fa fa-angle-down"></i></a>
@@ -118,6 +147,9 @@
     </div>
   </div>
   <!--/header-bottom-->
+
+
+  <style> .mainmenu btn-group:hover > .dropdown-menu { display: block; }</style>
 
 </header>
 <!--/header-->
