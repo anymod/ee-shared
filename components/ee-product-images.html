@@ -3,12 +3,12 @@
     <img ee-image-fadein
       watch="true"
       ee-src="mainImage"
-      ee-w=300 ee-h=480 ee-crop="pad"
+      ee-w=480 ee-h=480 ee-crop="pad"
       load-boolean="hideFavoriteButton"
       class="full-width transition-400 main-image pad-10"
-      style="max-height: 450px; width: auto;"
+      style="max-height: 480px; width: auto;"
       name="mainImage"
-      data-zoom="{{ mainImage | cloudinaryResizeTo:900:1440:'pad' }}">
+      data-zoom="{{ mainImage | cloudinaryResizeTo:1440:1440:'pad' }}">
   </div>
   <!-- images -->
   <div ng-show="product.additional_images.length > 0" class="vert-5">

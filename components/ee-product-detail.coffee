@@ -21,11 +21,11 @@ module.directive "eeProductDetail", ($rootScope, $state, $location, $filter) ->
       scope.currentSku = sku
       if sku.msrp and sku.price
         scope.msrpDiscount = (sku.msrp - sku.price) / sku.msrp
+      $rootScope.$broadcast 'sku:setCurrent', sku
 
     if scope.skus and scope.skus.length > 0 then scope.setCurrentSku scope.skus[0]
 
-    $rootScope.$on 'product:loaded', (e, prod) -> scope.setCurrentSku prod.skus[0]
-    $rootScope.$on 'product:navigate', (e, prod) ->
-      scope.setCurrentSku prod.skus[0]
+    scope.$on 'product:loaded', (e, prod) -> scope.setCurrentSku prod.skus[0]
+    scope.$on 'product:navigate', (e, prod) -> scope.setCurrentSku prod.skus[0]
 
     return

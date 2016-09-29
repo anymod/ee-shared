@@ -8,21 +8,26 @@
             <span ng-bind="getStart()"></span>&nbsp;-&nbsp;<span ng-bind="getEnd()"></span>&nbsp;of
           </span>
           <span ng-bind="data.count"></span>&nbsp;results
-          <span ng-if="getCategoryTitle().length > 0 || stateParams.q.length > 0">for</span>
+          <span ng-if="$state.currentTag1 || $state.currentTag2 || $state.currentTag3 || $stateParams.q.length > 0">for</span>
         </span>
-        <!-- category title -->
-        <strong ng-if="getCategoryTitle().length > 0" ng-bind="getCategoryTitle()"></strong>
-        <span ng-if="getCategoryTitle().length > 0 && !stateParams.t.length > 0 && !stateParams.q.length > 0" ng-click="clearCategory()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
-        <!-- /category title -->
-        <!-- subtag -->
-        <span ng-if="getCategoryTitle().length > 0 && stateParams.t.length > 0">:</span>
-        <strong ng-if="stateParams.t.length > 0" ng-bind="stateParams.t"></strong>
-        <span ng-if="getCategoryTitle().length > 0 && stateParams.t.length > 0 && !stateParams.q.length > 0" ng-click="clearTags()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
-        <!-- /subtag -->
+        <!-- currentTag1 -->
+        <strong ng-if="$state.currentTag1" ng-bind="$state.currentTag1"></strong>
+        <span ng-if="$state.currentTag1 && !$state.currentTag2 && !$state.currentTag3 && !$stateParams.q" ng-click="clearTagLevel(1)" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <!-- /currentTag1 -->
+        <!-- currentTag2 -->
+        <span ng-if="$state.currentTag1 && $state.currentTag2">:</span>
+        <strong ng-if="$state.currentTag2" ng-bind="$state.currentTag2"></strong>
+        <span ng-if="$state.currentTag2 && !$state.currentTag3 && !$stateParams.q" ng-click="clearTagLevel(2)" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <!-- /currentTag2 -->
+        <!-- currentTag3 -->
+        <span ng-if="$state.currentTag2 && $state.currentTag3">:</span>
+        <strong ng-if="$state.currentTag3" ng-bind="$state.currentTag3"></strong>
+        <span ng-if="$state.currentTag3 && !$stateParams.q" ng-click="clearTagLevel(3)" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <!-- /currentTag3 -->
         <!-- query -->
-        <span ng-if="getCategoryTitle().length > 0 && stateParams.q.length > 0">:</span>
-        <strong ng-if="stateParams.q.length > 0" ng-bind="stateParams.q"></strong>
-        <span ng-if="stateParams.q.length > 0" ng-click="clearSearch()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
+        <span ng-if="($state.currentTag1 || $state.currentTag2 || $state.currentTag3) && $stateParams.q">:</span>
+        <strong ng-if="$stateParams.q" ng-bind="$stateParams.q"></strong>
+        <span ng-if="$stateParams.q" ng-click="clearSearch()" class="fa fa-fw fa-times-circle text-muted hover-pointer"></span>
         <!-- /query -->
 
       </div>

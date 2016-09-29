@@ -2,12 +2,13 @@
 
 module = angular.module 'ee-search-breadcrumb', []
 
-module.directive "eeSearchBreadcrumb", ($stateParams, categories, sortOrders, eeProducts) ->
+module.directive "eeSearchBreadcrumb", ($state, $stateParams, sortOrders, eeProducts) ->
   templateUrl: 'ee-shared/components/ee-search-breadcrumb.html'
   # restrict: 'E'
   scope: {}
   link: (scope, ele, attrs) ->
-    scope.stateParams = $stateParams
+    scope.$state = $state
+    scope.$stateParams = $stateParams
     scope.data = eeProducts.data
 
     scope.getStart = () ->
@@ -26,10 +27,10 @@ module.directive "eeSearchBreadcrumb", ($stateParams, categories, sortOrders, ee
           if parseInt(min) <= 0 and parseInt(max) < 300 then return 'Under $' + max
           '$' + min + ' - $' + max
 
-    scope.getCategoryTitle = () ->
-      for category in categories
-        if parseInt(category.id) is parseInt(eeProducts.data.params.c) then return category.title
-      return null
+    # scope.getCategoryTitle = () ->
+    #   for category in categories
+    #     if parseInt(category.id) is parseInt(eeProducts.data.params.c) then return category.title
+    #   return null
 
     scope.getOrderTitle = () ->
       for order in sortOrders
@@ -38,8 +39,10 @@ module.directive "eeSearchBreadcrumb", ($stateParams, categories, sortOrders, ee
 
     scope.setOrder = (order) -> eeProducts.fns.setParams { s: order, p: 1 }, { goTo: 'search' }
     scope.clearSearch = () -> eeProducts.fns.setParams { q: null, p: 1 }, { goTo: 'search' }
-    scope.clearCategory = () -> eeProducts.fns.setParams { c: null, p: 1 }, { goTo: 'search' }
-    scope.clearTags = () -> eeProducts.fns.setParams { t: null, p: 1 }, { goTo: 'search' }
     scope.clearRange = () -> eeProducts.fns.setParams { r: null, p: 1 }, { goTo: 'search' }
+    scope.clearTagLevel = (level) ->
+      params = { p: 1 }
+      params['t' + level] = null for [3..level]
+      eeProducts.fns.setParams params, { goTo: 'search' }
 
     return

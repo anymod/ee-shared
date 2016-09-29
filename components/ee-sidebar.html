@@ -1,7 +1,7 @@
 <div class="left-sidebar">
 
   <!-- collection -->
-  <span ng-if="stateParams.coll > 0 && ee.Collection.collection.banner">
+  <span ng-if="$stateParams.coll > 0 && ee.Collection.collection.banner">
     <h2>Collection</h2>
     <div class="vert-50 margin-top-0">
       <div class="position-relative">
@@ -20,14 +20,14 @@
   <!-- /collection -->
 
   <!-- categories -->
-  <h2 ng-bind="currentTag1 || 'Category'"></h2>
+  <h2 ng-bind="$state.currentTag1 || 'Categories'"></h2>
   <div class="panel-group category-products" id="accordian">
     <div ng-repeat="(tag1, branch1) in tagTree"
-      ng-if="currentTag1 && currentTag1 == tag1 || !currentTag1"
+      ng-if="$state.currentTag1 && $state.currentTag1 == tag1 || !$state.currentTag1"
       class="panel panel-default">
 
       <!-- No currentTag1 -->
-      <div ng-if="!currentTag1">
+      <div ng-if="!$state.currentTag1">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a href ng-click="setTags({ t1: tag1 })" ng-bind="tag1"></a>
@@ -44,11 +44,11 @@
       <!-- /No currentTag1 -->
 
       <!-- Has currentTag1 -->
-      <div ng-if="currentTag1" ng-repeat="(tag2, branch2) in branch1">
+      <div ng-if="$state.currentTag1" ng-repeat="(tag2, branch2) in branch1">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a href ng-click="setTags({ t1: tag1, t2: tag2 })"
-              ng-class="{ active: currentTag2 && currentTag2 == tag2 }">
+              ng-class="{ active: $state.currentTag2 && $state.currentTag2 == tag2 }">
               <span ng-bind="tag2"></span>
               <!-- <span class="badge pull-right">
                 <i class="fa" ng-class="openTag ? 'fa-minus' : 'fa-plus'"></i>
@@ -56,11 +56,11 @@
             </a>
           </h4>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" ng-if="!$state.currentTag2 || $state.currentTag2 == tag2">
           <ul>
             <li ng-repeat="tag3 in branch2">
               <a href ng-click="setTags({ t1: tag1, t2: tag2, t3: tag3 })"
-                ng-class="{ 'text-primary-background': currentTag3 && currentTag3 == tag3 }"
+                ng-class="{ 'text-primary-background': $state.currentTag3 && $state.currentTag3 == tag3 }"
                 ng-bind="tag3">
               </a>
             </li>
