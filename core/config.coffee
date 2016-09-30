@@ -47,24 +47,6 @@ angular.module('app.core').config ($locationProvider, $stateProvider, $urlRouter
       $delegate.currentTag1 = tag1 || null
       $delegate.currentTag2 = tag2 || null
       $delegate.currentTag3 = tag3 || null
-      console.log $delegate
-
-      # $delegate['currentTag' + i] = null for i in [1..3]
-      # if toParams.t1
-      #   for tag1, branch1 of tagTree
-      #     if toParams.t1 is $filter('urlText')(tag1)
-      #       $delegate.currentTag1 = tag1
-      #       break
-      #   if $delegate.currentTag1
-      #     for tag2, branch2 of tagTree[$delegate.currentTag1]
-      #       if toParams.t2 is $filter('urlText')(tag2)
-      #         $delegate.currentTag2 = tag2
-      #         break
-      #     if $delegate.currentTag2
-      #       for tag3 in tagTree[$delegate.currentTag1][$delegate.currentTag2]
-      #         if toParams.t3 is $filter('urlText')(tag3)
-      #           $delegate.currentTag3 = tag3
-      #           break
     $delegate
 
   return

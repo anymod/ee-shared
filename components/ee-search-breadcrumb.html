@@ -34,17 +34,19 @@
 
       <!-- sort order -->
       <div class="col-xs-3 text-right">
-        Sort by
-        <span class="dropdown" uib-dropdown>
-          <div class="btn btn-xs btn-default" uib-dropdown-toggle>
-            <span ng-bind="getOrderTitle()"></span>&nbsp;<i class="fa fa-caret-down"></i>
-          </div>
-          <ul class="dropdown-menu dropdown-menu-right" style="min-width: 90px;" uib-dropdown-menu>
-            <li ng-repeat="order in data.sortOrders">
-              <a href ng-bind="order.title" ng-click="setOrder(order.order)"></a>
-            </li>
-          </ul>
-        </span>
+        <div class="pull-right">
+          Sort by
+          <span class="dropdown" uib-dropdown>
+            <div class="btn btn-xs btn-default" uib-dropdown-toggle>
+              <span ng-bind="getOrderTitle()"></span>&nbsp;<i class="fa fa-caret-down"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-right" style="min-width: 90px;" uib-dropdown-menu>
+              <li ng-repeat="order in data.sortOrders">
+                <a href ng-bind="order.title" ng-click="setOrder(order.order)"></a>
+              </li>
+            </ul>
+          </span>
+        </div>
       </div>
       <!-- /sort order -->
     </div>

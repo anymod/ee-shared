@@ -88,7 +88,7 @@
 }
 
 .product-information span span{
-	display: block;
+	/*display: block;*/
 	width: 100%;
 }
 
@@ -264,9 +264,9 @@ ul.sub-menu{
 
 }
 
-.product-information span {
+/*.product-information span {
 	display: block;
-}
+}*/
 
 #similar-product {
 	margin-bottom: 40px;
