@@ -1,6 +1,6 @@
 <div class="text-center">
-  <span ng-repeat="prod in products">
-    <div class="col-sm-4">
+  <span ng-repeat="prod in products" ng-hide="prod.id == excludedId">
+    <div ng-class="customClass || 'col-sm-4'">
     <!-- <span class="homepage-product text-left inline-block vertical-align-top"> -->
       <ee-product-single product="prod"></ee-product-single>
     </div>

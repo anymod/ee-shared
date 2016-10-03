@@ -27,6 +27,6 @@ angular.module('ee-product-single').directive "eeProductSingle", ($rootScope, $s
     scope.addToCart = (sku) ->
       scope.adding = true
       scope.addingText = 'Adding'
-      $rootScope.$emit 'cart:add:sku', sku
+      $rootScope.$emit 'cart:add:sku', { sku: sku, searchLike: scope.product.title }
 
     return

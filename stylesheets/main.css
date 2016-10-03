@@ -234,6 +234,9 @@ a#scrollUp i{
   padding-bottom: 30px;
   padding-top: 30px;
 }*/
+.header-bottom .container .row .mainmenu {
+  border-bottom: 1px solid #f5f5f5;
+}
 
 .navbar-collapse.collapse{
   padding-left: 0;
