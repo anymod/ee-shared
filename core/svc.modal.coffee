@@ -26,9 +26,11 @@ angular.module('app.core').factory 'eeModal', ($uibModal, $rootScope) ->
       templateUrl:    'store/modal/modal.offer.html'
       controller:     'modalCtrl as modal'
       backdropClass:  _backdropClass
+      windowClass:    'modal-circle'
     offer_thanks:
       templateUrl:    'store/modal/modal.offer.thanks.html'
       controller:     'modalCtrl as modal'
+      windowClass:    'modal-circle'
       backdropClass:  _backdropClass
     favorites:
       templateUrl:    'store/modal/modal.favorites.html'

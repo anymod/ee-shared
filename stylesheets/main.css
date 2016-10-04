@@ -256,7 +256,7 @@ a#scrollUp i{
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 	/*font-weight: 300;*/
-	padding: 12px;
+	padding: 12px 11px;
 }
 
 .mainmenu ul li a:hover,

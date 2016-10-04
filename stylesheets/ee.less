@@ -381,6 +381,23 @@ body.modal-open { overflow: visible; }
     overflow-x: hidden;
   }
 }
+.modal-circle {
+  .modal-content {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 450px;
+    min-height: 450px;
+    max-width: 100%;
+  }
+  .modal-dialog {
+    width: 450px;
+    max-width: 94%;
+  }
+  @media (max-width: 470px) {
+    .modal-content { border-radius: 5px; }
+  }
+}
+
 
 // Carousel
 // @carousel-caption-height: 60px;
