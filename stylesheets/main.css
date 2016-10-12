@@ -960,7 +960,8 @@ h2.title {
   margin-bottom: 25px;
 }
 
-.product-overlay .add-to-cart:hover {
+.product-overlay .add-to-cart:hover,
+.product-overlay .add-to-cart.hovered {
   background:#fff;
   color: #B6405F;
 }
@@ -985,7 +986,8 @@ h2.title {
   margin-bottom: 25px;
 }
 
-.btn.add-to-cart:hover {
+.btn.add-to-cart:hover,
+.btn.add-to-cart.hovered {
   background: #B6405F;
   border: 0 none;
   border-radius: 0;
@@ -1000,7 +1002,8 @@ h2.title {
 	margin-right:5px;
 }
 
-.add-to-cart:hover {
+.add-to-cart:hover,
+.add-to-cart.hovered {
   background: #B6405F;
   color: #FFFFFF;
 }

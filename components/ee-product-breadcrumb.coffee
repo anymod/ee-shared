@@ -11,7 +11,7 @@ module.directive "eeProductBreadcrumb", ($rootScope, $state) ->
     scope.currentSku = {}
 
     setTagsFor = (sku) ->
-      { tag1, tag2, tag3 } = $state.urlToPlaintextTags { t1: sku.tags1[0], t2: sku.tags2[0], t3: sku.tags3[0] }
+      { tag1, tag2, tag3 } = $state.urlToPlaintextTags { t1: sku.tags1?[0], t2: sku.tags2?[0], t3: sku.tags3?[0] }
       scope.tag1 = tag1
       scope.tag2 = tag2
       scope.tag3 = tag3

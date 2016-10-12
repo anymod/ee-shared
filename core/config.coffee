@@ -22,6 +22,7 @@ angular.module('app.core').config ($locationProvider, $stateProvider, $urlRouter
   $provide.decorator '$state', ($delegate, $rootScope, $filter, tagTree) ->
     $delegate.urlToPlaintextTags = (urlTags) ->
       # urlTags = { t1: tag1, t2: tag2, t3: tag3 }
+      urlTags ||= {}
       plaintextTag1 = plaintextTag2 = plaintextTag3 = null
       if urlTags.t1
         for tag1, branch1 of tagTree
