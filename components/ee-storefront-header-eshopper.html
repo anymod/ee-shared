@@ -1,3 +1,15 @@
+<!-- Sale Banner -->
+<!-- <div class="full-width text-center hover-pointer"
+  style="min-height: 100px; background: url(https://res.cloudinary.com/eeosk/image/upload/e_hue:-8,a_hflip,w_1000,c_fill,h_100/v1477002848/banner_lic3pm.png) no-repeat center center; background-size: cover;"
+  ng-click="addBannerCoupon()">
+  <div class="white-color">
+    <img src="https://res.cloudinary.com/eeosk/image/upload/c_scale,h_100/v1477014065/banner-message-4_bzkvlq.png"
+      style="width: auto; max-height: 100px;"
+      alt="Shop the Anniversary Sale">
+  </div>
+</div> -->
+<!-- /Sale Banner -->
+
 <!-- Coupon Header -->
 <div ng-if="couponData.coupon.uuid"
   class="full-width text-center bg-secondary"
@@ -25,10 +37,12 @@
               <li class="free-shipping">
                 <a href uib-tooltip="Orders over $49 automatically receive free shipping."
                   tooltip-placement="bottom">
-                  <i class="fa fa-truck"></i>&nbsp;&nbsp;Free Shipping over $49
+                  <i class="fa fa-truck"></i>&nbsp;&nbsp;<strong>Free Shipping over $49</strong>
                 </a>
               </li>
-              <li>&nbsp;&nbsp;</li>
+              <li></li>
+              <li><a ui-sref="help"><i class="fa fa-repeat"></i>&nbsp;&nbsp;Easy Returns</a></li>
+              <li></li>
               <li><a ui-sref="help"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Help</a></li>
             </ul>
           </div>
@@ -63,8 +77,12 @@
           <div class="shop-menu pull-right">
             <ul class="nav navbar-nav">
               <div class="search_box pull-left" style="margin-right:20px">
-                <form ng-submit="addToQuery()" class="margin-0">
+                <form ng-submit="addToQuery()" class="position-relative margin-0">
                   <input type="text" placeholder="Search" ng-model="boxValue" />
+                  <div class="position-absolute hover-pointer"
+                    ng-click="addToQuery()"
+                    style="top: 0; right: 0; width: 35px; height: 35px;">
+                  </div>
                 </form>
               </div>
               <!-- <li><a href="#"><i class="fa fa-user"></i> Account</a></li> -->
@@ -128,7 +146,11 @@
                 </ul>
               </li>
               <li class="pull-right">
-                <a ui-sref="sale({ id: 13016 })" style="padding-right: 0px;">Sale</a>
+                <a ui-sref="sale({ id: 13016 })"
+                  class="btn-themed white-color vert-5"
+                  style="padding: 7px 12px;">
+                  Sale
+                </a>
               </li>
               <!-- <li class="dropdown">
                 <a ui-sref="category({ id: 4 })">Home Accents<i class="fa fa-angle-down"></i></a>

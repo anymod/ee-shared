@@ -60,4 +60,7 @@ module.directive "eeStorefrontHeader", ($rootScope, $state, $window, $filter, ee
       params[key] = $filter('urlText')(tagObj[key]) for key in Object.keys(tagObj)
       eeProducts.fns.setParams params, { goTo: 'search' }
 
+    scope.addBannerCoupon = () ->
+      eeCoupon.fns.defineCoupon 'SAVENOW'
+
     return
