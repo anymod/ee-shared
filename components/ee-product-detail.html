@@ -61,7 +61,14 @@
           <strong ng-if="currentSku.width && currentSku.height">&times;</strong>
           <span ng-if="currentSku.height">{{ currentSku.height }}"H </span>
         </h4>
-        <ee-favorites-heart product-skus="product.skus" class="btn btn-default"></ee-favorites-heart>
+        <ee-favorites-heart
+          product-skus="product.skus"
+          class="btn btn-default"
+          style="margin-right: 7px;">
+        </ee-favorites-heart>
+        <div ng-if="currentSku.favorites_count > 0" class="inline-block vert-5 font-weight-200">
+          Favorited by <span ng-bind="currentSku.favorites_count"></span> shopper<span ng-if="currentSku.favorites_count > 1">s</span>
+        </div>
         <h5 class="vert-5 font-weight-200">Ships from USA</h5>
         <br>
         <div class="panel panel-default max-width-300">
