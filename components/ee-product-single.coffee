@@ -17,6 +17,11 @@ angular.module('ee-product-single').directive "eeProductSingle", ($rootScope, $s
       for sku in scope.product?.skus
         if sku.shipping_price > 0 then scope.freeShipping = false
 
+    if scope.product?.skus?[0].tags3?.length > 0
+      for tag in scope.product.skus[0].tags3
+        for doorbuster in ['steals-under-100', 'signature-lighting', 'statement-furniture-pieces']
+          if tag is doorbuster then scope.doorbusterTag = tag
+
     # scope.imageClick = () ->
     #   return $state.go('storefront') unless scope.product?.id?
     #   title = $filter('urlText')(scope.product.title )
