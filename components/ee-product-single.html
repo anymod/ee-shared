@@ -32,6 +32,11 @@
       ng-if="doorbusterTag"
       class="doorbuster-ribbon bg-themed white-color no-underline">
       <span ng-hide="hideSale">Doorbuster</span>
+      <span ng-if="(product.prices[0] / product.msrps[0]) <= 0.85"
+            ng-hide="hideSale || product.prices[0] >= product.msrps[0]">
+        <br>
+        <span ng-bind="1 - (product.prices[0] / product.msrps[0]) | percentage:0"></span> off
+      </span>
       <span ng-show="hideSale" ng-bind="1 - (product.prices[0] / product.msrps[0]) | percentage:0"></span>
     </a>
     <!-- <a ui-sref="sale({ id: product.discounted })"
