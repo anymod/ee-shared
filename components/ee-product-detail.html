@@ -19,7 +19,8 @@
       <div ng-if="product.skus.length > 1">
         <p ng-bind="currentSku.selection_text"></p>
       </div>
-      <a ng-if="currentSku.discounted" ui-sref="sale({ id: currentSku.discounted })" class="btn btn-themed btn-arrow">Sale</a>
+      <!-- <a ng-if="currentSku.discounted" ui-sref="sale({ id: currentSku.discounted })" class="btn btn-themed btn-arrow">Sale</a> -->
+      <div ng-if="currentSku.tags1.indexOf('doorbusters') > -1" ui-sref="search({ t1: 'doorbusters' })" class="btn btn-themed btn-arrow">Doorbuster</div>
       <div>
         <h2 ng-bind="currentSku.price | centToDollar"
           class="product-price">

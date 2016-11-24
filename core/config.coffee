@@ -34,7 +34,7 @@ angular.module('app.core').config ($locationProvider, $stateProvider, $urlRouter
           if urlTags.t2 is $filter('urlText')(tag2)
             plaintextTag2 = tag2
             break
-      if urlTags.t3
+      if urlTags.t3 and tagTree[plaintextTag1]
         for tag3 in tagTree[plaintextTag1][plaintextTag2]
           if urlTags.t3 is $filter('urlText')(tag3)
             plaintextTag3 = tag3
